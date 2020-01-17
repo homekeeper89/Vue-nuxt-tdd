@@ -1,7 +1,12 @@
 <template>
-  <div class="todo-footer">
-    hello footer
-  </div>
+  <v-footer padless>
+    <v-col
+      class="text-center"
+      cols="12"
+    >
+      {{ new Date().getFullYear() }} — <strong>Matthew</strong>
+    </v-col>
+  </v-footer>
 </template>
 
 <script>
