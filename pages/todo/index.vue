@@ -2,7 +2,7 @@
   <div class="todo-index">
     <Header></Header>
     <div class="todo-input">
-      <UiInput></UiInput>
+      <UiInput ref="todoInput"></UiInput>
     </div>
     <div class="todo-btn-group">
       <UiButton :property="btnRegisterObj" :functionName="'registerTodo'" v-on:registerTodo="registerTodo"></UiButton>
@@ -19,6 +19,7 @@
   import Header from '@/components/todo/Header'
   import UiButton from '@/components/ui/ui-button-primary'
   import UiInput from '@/components/ui/ui-input'
+  import { mapGetters } from 'vuex'
 
   export default {
     components:{
@@ -36,12 +37,18 @@
         }
       }
     },
+    computed:{
+      ...mapGetters({
+        logicData: 'getHelloThere',
+        })
+    },
     methods:{
       onClickMethod(){
         alert("hello world")
       },
-      registerTodo(value){
-        alert(value)
+      registerTodo(){
+        console.log('coucou', this.logicData)
+        console.log(this.$refs.todoInput.title)
       }
     }
   }
