@@ -8,7 +8,10 @@ const defaultState = {
 
 const inBrowser = typeof window !== 'undefined';
 // if in browser, use pre-fetched state injected by SSR
-const state = (inBrowser && window.__INITIAL_STATE__) ? window.__INITIAL_STATE__.page : defaultState;
+// const state = (inBrowser && window.__INITIAL_STATE__) ? window.__INITIAL_STATE__.page : defaultState;
+const state = {
+  hello : 'hello world'
+}
 
 export default {
   state,
