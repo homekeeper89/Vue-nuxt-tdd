@@ -19,7 +19,7 @@
   import Header from '@/components/todo/Header'
   import UiButton from '@/components/ui/ui-button-primary'
   import UiInput from '@/components/ui/ui-input'
-  import { mapGetters } from 'vuex'
+  import { mapGetters, mapMutations } from 'vuex'
 
   export default {
     components:{
@@ -40,15 +40,18 @@
     computed:{
       ...mapGetters({
         logicData: 'getHelloThere',
-        })
+        }),
     },
     methods:{
+      ...mapMutations(
+        ['SET_TODOTITLE']
+      ),
       onClickMethod(){
         alert("hello world")
       },
       registerTodo(){
-        console.log('coucou', this.logicData)
-        console.log(this.$refs.todoInput.title)
+        this.SET_TODOTITLE(this.$refs.todoInput.title)
+        console.log(this.logicData)
       }
     }
   }

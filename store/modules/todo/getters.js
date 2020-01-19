@@ -1,3 +1,3 @@
 export default {
-  getHelloThere: state => state.hello
+  getHelloThere: state => state.newTodoTitle
 }
