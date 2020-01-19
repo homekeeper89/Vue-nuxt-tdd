@@ -18,7 +18,7 @@ export default {
   methods:{
     onClick(){
       this.$emit(this.functionName)
-    }
-  }
+    },
+  },
 };
 </script>
