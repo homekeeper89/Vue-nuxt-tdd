@@ -1,3 +1,4 @@
 export default {
-  getHelloThere: state => state.newTodoTitle
+  getTodoTitle: state => state.newTodoTitle
+
 }

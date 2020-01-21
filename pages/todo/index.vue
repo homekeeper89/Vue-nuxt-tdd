@@ -60,7 +60,7 @@
     },
     computed:{
       ...mapGetters({
-        logicData: 'getHelloThere',
+        getTodoTitle: 'getTodoTitle',
         }),
       ...mapState(
         'headers',
@@ -76,7 +76,7 @@
       },
       registerTodo(){
         this.SET_TODOTITLE(this.$refs.todoInput.title)
-        console.log(this.logicData)
+        console.log(this.getTodoTitle)
       }
     }
   }
