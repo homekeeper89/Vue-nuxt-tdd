@@ -8,7 +8,7 @@
       <UiButton :property="btnRegisterObj" :functionName="'registerTodo'" v-on:registerTodo="registerTodo"></UiButton>
       <UiButton :property="btnReportObj"></UiButton>
     </div>
-    <Body :headers="headers" :desserts="desserts"></Body>
+    <Body :headers="headers" :todoList="getTodoList"></Body>
     <Footer></Footer>
   </div>
 </template>
@@ -64,8 +64,11 @@
         }),
       ...mapState(
         'headers',
-        'desserts'
-      )
+        'todoList'
+      ),
+      getTodoList(){
+        return this.todoList
+      }
     },
     methods:{
       ...mapMutations(
@@ -76,7 +79,6 @@
       },
       registerTodo(){
         this.SET_TODOTITLE(this.$refs.todoInput.title)
-        console.log(this.getTodoTitle)
       }
     }
   }
