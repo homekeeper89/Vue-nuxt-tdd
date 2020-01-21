@@ -31,6 +31,13 @@ const state = {
       Contents: 'Finish Some feature',
       Created_at: new Date(),
       Updated_at: new Date(),
+    },
+    {
+      ID: 2,
+      Title: 'Vue Todo project',
+      Contents: 'Finish Some feature',
+      Created_at: new Date(),
+      Updated_at: new Date(),
     }
   ],
 }
