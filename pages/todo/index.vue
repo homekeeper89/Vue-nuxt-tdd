@@ -9,7 +9,11 @@
       <UiButton :property="btnReportObj"></UiButton>
     </div>
     <Body :headers="getHeaders" :todoList="getTodoList"></Body>
-    <UiButtonTest :method="parentMethod" />
+    <UiButtonTest :method="parentMethod">
+      <template v-slot:sidebar>
+        테스트 버튼
+      </template>
+    </UiButtonTest>
     <Footer></Footer>
   </div>
 </template>

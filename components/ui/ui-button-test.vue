@@ -1,5 +1,7 @@
 <template>
-  <v-btn depressed small @click="test">테스트 버튼</v-btn>
+  <v-btn depressed small @click="test">
+    <slot name="sidebar"></slot>
+  </v-btn>
 </template>
 <script>
 export default {
