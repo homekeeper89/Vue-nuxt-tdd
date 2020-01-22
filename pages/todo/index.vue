@@ -9,6 +9,7 @@
       <UiButton :property="btnReportObj"></UiButton>
     </div>
     <Body :headers="getHeaders" :todoList="getTodoList"></Body>
+    <UiButtonTest :method="parentMethod" />
     <Footer></Footer>
   </div>
 </template>
@@ -19,11 +20,13 @@
   import Header from '@/components/todo/Header'
   import UiButton from '@/components/ui/ui-button-primary'
   import UiInput from '@/components/ui/ui-input'
+  import UiInputCustom from '@/components/ui/ui-input-custom'
+  import UiButtonTest from '@/components/ui/ui-button-test'
   import { mapGetters, mapMutations, mapState } from 'vuex'
 
   export default {
     components:{
-      Body, Footer, Header, UiButton, UiInput
+      Body, Footer, Header, UiButton, UiInput, UiInputCustom
     },
     data(){
       return{
@@ -35,6 +38,7 @@
           color:"error",
           name:"신고"
         },
+        name:'',
       }
     },
     computed:{
@@ -49,6 +53,9 @@
       },
       registerTodo(){
         this.SET_TODOTITLE(this.$refs.todoInput.title)
+      },
+      parentMethod(){
+        console.log('kkkk')
       }
     },
     mounted(){

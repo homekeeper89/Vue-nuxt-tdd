@@ -1,5 +1,5 @@
 <template>
-  <v-text-field :rules="rules" v-model="title"></v-text-field>
+  <v-text-field :rules="rules" v-model="title"/>
 </template>
 <script>
   export default {
