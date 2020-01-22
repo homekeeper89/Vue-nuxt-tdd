@@ -26,7 +26,7 @@
 
   export default {
     components:{
-      Body, Footer, Header, UiButton, UiInput, UiInputCustom
+      Body, Footer, Header, UiButton, UiInput, UiInputCustom, UiButtonTest
     },
     data(){
       return{
@@ -54,8 +54,8 @@
       registerTodo(){
         this.SET_TODOTITLE(this.$refs.todoInput.title)
       },
-      parentMethod(){
-        console.log('kkkk')
+      parentMethod(valueFromChild){
+        console.log(valueFromChild)
       }
     },
     mounted(){
