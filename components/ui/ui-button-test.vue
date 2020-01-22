@@ -1,6 +1,6 @@
 <template>
   <v-btn depressed small @click="test">
-    <slot name="sidebar"></slot>
+    <slot name="sidebar" v-bind:square="number * number"></slot>
   </v-btn>
 </template>
 <script>
@@ -8,6 +8,9 @@ export default {
   props: {
     method:{
       type:Function
+    },
+    number:{
+      type:Number
     }
   },
   data(){

@@ -9,9 +9,9 @@
       <UiButton :property="btnReportObj"></UiButton>
     </div>
     <Body :headers="getHeaders" :todoList="getTodoList"></Body>
-    <UiButtonTest :method="parentMethod">
-      <template v-slot:sidebar>
-        테스트 버튼
+    <UiButtonTest :method="parentMethod" :number=3>
+      <template #sidebar="scopedProps">
+        테스트 버튼, {{scopedProps.square}}
       </template>
     </UiButtonTest>
     <Footer></Footer>
