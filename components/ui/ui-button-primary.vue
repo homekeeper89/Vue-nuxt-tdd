@@ -11,14 +11,14 @@ export default {
         name: "primary"
       }
     },
-    functionName:{
+    functionName: {
       type: String
-    }
-  },
-  methods:{
-    onClick(){
-      this.$emit(this.functionName)
     },
+  },
+  methods: {
+    onClick() {
+      this.$emit(this.functionName);
+    }
   },
 };
 </script>
