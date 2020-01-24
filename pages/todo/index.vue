@@ -8,7 +8,7 @@
       <UiButton :property="btnRegisterObj" :functionName="'registerTodo'" v-on:registerTodo="registerTodo"></UiButton>
       <UiButton :property="btnReportObj"></UiButton>
     </div>
-    <Body :headers="headers" :desserts="desserts"></Body>
+    <Body :headers="getHeaders" :todoItem="getTodoItems"></Body>
     <Footer></Footer>
   </div>
 </template>
@@ -61,11 +61,9 @@
     computed:{
       ...mapGetters({
         logicData: 'getHelloThere',
-        }),
-      ...mapState(
-        'headers',
-        'desserts'
-      )
+        getTodoItems:'getTodoItems',
+        getHeaders:'getHeaders'
+        })
     },
     methods:{
       ...mapMutations(

@@ -24,10 +24,17 @@ const state = {
     { text: 'Created_at', value: 'Created_at' },
     { text: 'Updated_at', value: 'Updated_at' },
   ],
-  desserts: [
+  items: [
     {
       ID: 1,
       Title: 'Vue Todo project',
+      Contents: 'Finish Some feature',
+      Created_at: new Date(),
+      Updated_at: new Date(),
+    },
+    {
+      ID: 2,
+      Title: 'Vue Todo project2',
       Contents: 'Finish Some feature',
       Created_at: new Date(),
       Updated_at: new Date(),
