@@ -28,12 +28,11 @@
   import UiButton from '@/components/ui/ui-button-primary'
   import UiInput from '@/components/ui/ui-input'
   import UiInputCustom from '@/components/ui/ui-input-custom'
-  import UiButtonTest from '@/components/ui/ui-button-test'
   import { mapGetters, mapMutations, mapState } from 'vuex'
 
   export default {
     components:{
-      Body, Footer, Header, UiButton, UiInput, UiInputCustom, UiButtonTest
+      Body, Footer, Header, UiButton, UiInput, UiInputCustom
     },
     data(){
       return{
