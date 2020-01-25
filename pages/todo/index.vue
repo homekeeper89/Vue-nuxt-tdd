@@ -5,15 +5,18 @@
       <UiInput ref="todoInput"></UiInput>
     </div>
     <div class="todo-btn-group">
-      <UiButton :property="btnRegisterObj" :functionName="'registerTodo'" v-on:registerTodo="registerTodo"></UiButton>
-      <UiButton :property="btnReportObj"></UiButton>
+      <UiButton :property="btnRegisterObj" :method="register">
+        <template #button_name>
+          등록
+        </template>
+      </UiButton>
+      <UiButton :property="btnReportObj" :method="cancel">
+        <template #button_name>
+          취소
+        </template>
+      </UiButton>
     </div>
     <Body :headers="getHeaders" :todoList="getTodoList"></Body>
-    <UiButtonTest :method="parentMethod" :number=3>
-      <template #sidebar="scopedProps">
-        테스트 버튼, {{scopedProps.square}}
-      </template>
-    </UiButtonTest>
     <Footer></Footer>
   </div>
 </template>
@@ -36,11 +39,9 @@
       return{
         btnRegisterObj:{
           color:"primary",
-          name:'등록'
         },
         btnReportObj:{
           color:"error",
-          name:"신고"
         },
         name:'',
       }
@@ -58,8 +59,11 @@
       registerTodo(){
         this.SET_TODOTITLE(this.$refs.todoInput.title)
       },
-      parentMethod(valueFromChild){
-        console.log(valueFromChild)
+      register(){
+        console.log("i am register")
+      },
+      cancel(){
+        console.log("i am cancel")
       }
     },
     mounted(){
