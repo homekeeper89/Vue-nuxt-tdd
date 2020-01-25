@@ -1,5 +1,7 @@
 <template>
-  <v-btn depressed small :color="property.color" @click="onClick">{{property.name}}</v-btn>
+  <v-btn depressed small :color="property.color" @click="onClick">
+    <slot name="button_name"></slot>
+  </v-btn>
 </template>
 <script>
 export default {
@@ -11,14 +13,14 @@ export default {
         name: "primary"
       }
     },
-    functionName:{
-      type: String
+    method: {
+      type: Function
     }
   },
-  methods:{
-    onClick(){
-      this.$emit(this.functionName)
-    },
-  },
+  methods: {
+    onClick() {
+      this.method();
+    }
+  }
 };
 </script>
