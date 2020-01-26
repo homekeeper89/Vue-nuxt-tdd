@@ -1,8 +1,13 @@
 <template>
-  <v-text-field :rules="rules" v-model="title"/>
+  <v-text-field :rules="rules" v-model="title" :label="label"/>
 </template>
 <script>
   export default {
+    props: {
+      label:{
+        type:String,
+      }
+    },
     data: () => ({
       rules: [
         value => !!value || 'Required.',
