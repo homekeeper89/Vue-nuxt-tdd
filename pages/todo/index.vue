@@ -26,7 +26,7 @@
   import Footer from '@/components/todo/Footer'
   import Header from '@/components/todo/Header'
   import UiButton from '@/components/ui/ui-button-primary'
-  import Dialog from '@/components/todo/dialog'
+  import Dialog from '@/components/todo/Dialog'
   import { mapGetters, mapMutations, mapState } from 'vuex'
 
   export default {
