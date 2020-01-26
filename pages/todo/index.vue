@@ -1,6 +1,9 @@
 <template>
   <div class="todo-index">
     <!-- <Header></Header> -->
+    <div class="todo-dialog">
+      <Dialog></Dialog>
+    </div>
     <div class="todo-btn-group">
       <UiButton :property="btnRegisterObj" :method="register">
         <template #button_name>
@@ -23,11 +26,12 @@
   import Footer from '@/components/todo/Footer'
   import Header from '@/components/todo/Header'
   import UiButton from '@/components/ui/ui-button-primary'
+  import Dialog from '@/components/todo/dialog'
   import { mapGetters, mapMutations, mapState } from 'vuex'
 
   export default {
     components:{
-      Body, Footer, Header, UiButton, UiInput, UiInputCustom
+      Body, Footer, Header, Dialog, UiButton
     },
     data(){
       return{
