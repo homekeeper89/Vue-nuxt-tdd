@@ -1,32 +1,37 @@
 <template>
-  <v-text-field :rules="rules" v-model="title" :label="label" @change="onChange"/>
+  <v-text-field
+    :rules="rules"
+    v-model="childValue"
+    :value="title"
+    :label="label"
+    @change="onChange"
+  />
 </template>
 <script>
-  export default {
-    props: {
-      label:{
-        type:String,
-      },
-      someValue:{
-        type:String,
-      },
-      method:{
-        type:Function
-      }
+export default {
+  props: {
+    label: {
+      type: String
     },
-    methods:{
-      onChange(){
-        this.method(this.title)
-      }
+    someValue: {
+      type: String
     },
-    data: () => ({
-      rules: [
-        value => !!value || 'Required.',
-      ],
-      title:''
-    }),
-    mounted(){
-      this.title = this.someValue
+    method: {
+      type: Function
     }
+  },
+  methods: {
+    onChange() {
+      this.method(this.childValue);
+    }
+  },
+  data: () => ({
+    rules: [value => !!value || "Required."],
+    title: "",
+    childValue: ""
+  }),
+  mounted() {
+    this.title = this.someValue;
   }
+};
 </script>

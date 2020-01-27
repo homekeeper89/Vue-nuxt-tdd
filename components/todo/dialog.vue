@@ -1,36 +1,50 @@
 <template>
-  <div class="">
-    <UiDialog>
-      <template #title="slotProps">
-        제목이에요
-      </template>
+  <div class="row-dialog">
+    <UiDialog :closeMethod="onClickAccept">
+      <template #title="slotProps">제목이에요</template>
       <template #content="slotProps">
-        <UiInput :someValue="someValue" :method="getValue"></UiInput>
+        <UiInput :someValue="dataDto.content" :method="getValue"></UiInput>
+      </template>
+      <template #footer="slotProps">
+        <UiInput :someValue="dataDto.footer" :method="getValue"></UiInput>
       </template>
     </UiDialog>
   </div>
 </template>
 
 <script>
-import UiDialog from '@/components/ui/ui-dialog'
-import UiInput from '@/components/ui/ui-input'
+import UiDialog from "@/components/ui/ui-dialog";
+import UiInput from "@/components/ui/ui-input";
 export default {
-  components:{
-    UiDialog, UiInput
+  components: {
+    UiDialog,
+    UiInput
   },
-  data(){
-    return{
-      someValue:'hello World'
+  props: {
+    closeMethod: {
+      type: Function
     }
   },
-  methods:{
-    getValue(childValue){
-      console.log(childValue)
+  data() {
+    return {
+      dataDto: {
+        content: "",
+        footer: ""
+      }
+    };
+  },
+  methods: {
+    getValue(childValue) {
+      console.log(childValue);
+    },
+    onClickAccept() {
+      this.dataDto.content = "";
+      this.dataDto.footer = "";
+      this.closeMethod(this.dataDto);
     }
   }
-}
+};
 </script>
 
 <style>
-
 </style>

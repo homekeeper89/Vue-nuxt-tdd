@@ -2,18 +2,15 @@
   <div class="todo-index">
     <!-- <Header></Header> -->
     <div class="todo-dialog">
-      <Dialog></Dialog>
+      <Dialog :closeMethod="onClickAccept">
+      </Dialog>
     </div>
     <div class="todo-btn-group">
       <UiButton :property="btnRegisterObj" :method="register">
-        <template #button_name>
-          등록
-        </template>
+        <template #button_name>등록</template>
       </UiButton>
       <UiButton :property="btnReportObj" :method="cancel">
-        <template #button_name>
-          취소
-        </template>
+        <template #button_name>취소</template>
       </UiButton>
     </div>
     <Body :headers="getHeaders" :todoList="getTodoList"></Body>
@@ -22,54 +19,58 @@
 </template>
 
 <script>
-  import Body from '@/components/todo/Body';
-  import Footer from '@/components/todo/Footer'
-  import Header from '@/components/todo/Header'
-  import UiButton from '@/components/ui/ui-button-primary'
-  import Dialog from '@/components/todo/Dialog'
-  import { mapGetters, mapMutations, mapState } from 'vuex'
+import Body from "@/components/todo/Body";
+import Footer from "@/components/todo/Footer";
+import Header from "@/components/todo/Header";
+import UiButton from "@/components/ui/ui-button-primary";
+import Dialog from "@/components/todo/Dialog";
+import { mapGetters, mapMutations, mapState } from "vuex";
 
-  export default {
-    components:{
-      Body, Footer, Header, Dialog, UiButton
-    },
-    data(){
-      return{
-        btnRegisterObj:{
-          color:"primary",
-        },
-        btnReportObj:{
-          color:"error",
-        },
-        name:'',
-      }
-    },
-    computed:{
-      ...mapGetters(['getTodoTitle', 'getTodoList', 'getHeaders']),
-    },
-    methods:{
-      ...mapMutations(
-        ['SET_TODOTITLE']
-      ),
-      onClickMethod(){
-        alert("hello world")
+export default {
+  components: {
+    Body,
+    Footer,
+    Header,
+    Dialog,
+    UiButton
+  },
+  data() {
+    return {
+      btnRegisterObj: {
+        color: "primary"
       },
-      registerTodo(){
-        this.SET_TODOTITLE(this.$refs.todoInput.title)
+      btnReportObj: {
+        color: "error"
       },
-      register(){
-        console.log("i am register")
-      },
-      cancel(){
-        console.log("i am cancel")
-      }
+      name: ""
+    };
+  },
+  computed: {
+    ...mapGetters(["getTodoTitle", "getTodoList", "getHeaders"])
+  },
+  methods: {
+    ...mapMutations(["SET_TODOTITLE"]),
+    onClickMethod() {
+      alert("hello world");
     },
-    mounted(){
-      this.headers
+    registerTodo() {
+      this.SET_TODOTITLE(this.$refs.todoInput.title);
+    },
+    register() {
+      console.log("i am register");
+    },
+    cancel() {
+      console.log("i am cancel");
+    },
+    onClickAccept(childData){
+      console.log(childData);
     }
+  },
+  mounted() {
+    this.headers;
   }
+};
 </script>
 
 <style lang="scss" scoped>
-
 </style>
