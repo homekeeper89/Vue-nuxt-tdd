@@ -31,11 +31,6 @@
 </template>
 <script>
 export default {
-  props: {
-    closeMethod: {
-      type: Function
-    }
-  },
   data() {
     return {
       dialog: false
@@ -43,10 +38,11 @@ export default {
   },
   methods: {
     test() {
-      console.log("i am test");
+      console.log('ui-dialog, sonCreated')
+      this.$parent.$emit('onCreated')
     },
     onClickAccept() {
-      this.closeMethod();
+      this.$parent.$emit('onClosed')
       this.dialog = false;
     },
     doSomething(){

@@ -1,6 +1,6 @@
 <template>
   <div class="row-dialog">
-    <UiDialog :closeMethod="onClickAccept">
+    <UiDialog @onClosed="onClickAccept">
       <template #title="slotProps">제목이에요</template>
       <template #content="slotProps">
         <UiInput :someValue="dataDto.content" :method="getValue"></UiInput>
@@ -21,25 +21,25 @@ export default {
     UiInput
   },
   props: {
-    closeMethod: {
-      type: Function
-    },
     dataDto: {
       type: Object
     }
   },
   data() {
-    return {};
+    return {
+    };
   },
   methods: {
     getValue(childValue) {
       console.log(childValue);
     },
     onClickAccept() {
-      this.dataDto.contents = null;
-      this.closeMethod(this.dataDto);
-    }
-  }
+      // FIXME
+      // why not work?
+      console.log('dialog, onClosed')
+      this.$parent.$emit('onClosed')
+    },
+  },
 };
 </script>
 
