@@ -73,6 +73,7 @@ export default {
       // 초기화 코드
       for(const key in g_dataDto){
         g_dataDto[key] = ''
+        g_dataDto.rendererKey = Math.random()
       }
       g_dataDto.rendererKey += 1;
       console.log(this.dataDto);
