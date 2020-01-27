@@ -51,6 +51,12 @@ export default {
   computed: {
     ...mapGetters(["getTodoTitle", "getTodoList", "getHeaders"])
   },
+  watch: {
+    dataDto(oldValue, newValue) {
+      console.log('watch', oldValue)
+      return oldValue;
+    }
+  },
   methods: {
     ...mapMutations(["SET_TODOTITLE"]),
     onClickMethod() {
@@ -65,11 +71,11 @@ export default {
     cancel() {
       console.log("i am cancel");
     },
-    onClickAccept(childData){
+    onClickAccept(childData) {
       console.log(childData);
     },
-    onRowClick(childItemId){
-      console.log("i am rowClick", childItemId)
+    onRowClick(clickedRowItem) {
+      this.dataDto = clickedRowItem;
     }
   },
   mounted() {

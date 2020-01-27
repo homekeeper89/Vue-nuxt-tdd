@@ -36,7 +36,6 @@ export default {
       console.log(childValue);
     },
     onClickAccept() {
-      this.dataDto.contents = null;
       this.closeMethod(this.dataDto);
     }
   }
