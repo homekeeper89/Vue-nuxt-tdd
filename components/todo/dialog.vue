@@ -1,7 +1,7 @@
 <template>
   <div class="row-dialog">
     <UiDialog :closeMethod="onClickAccept">
-      <template #header="slotProps">제목이에요</template>
+      <template #header="slotProps">제목</template>
       <template #title="slotProps">
         <UiInput :someValue="dataDto.title" :method="getValue"></UiInput>
       </template>

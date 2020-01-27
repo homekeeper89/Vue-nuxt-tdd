@@ -3,7 +3,7 @@
     <v-data-table :headers="headers" :items="todoList" :items-per-page="5" class="elevation-1">
       <template v-slot:body="{ items }">
         <tbody>
-          <tr v-for="item in items" :key="item.ID" @click="onRowClick(item.ID)">
+          <tr v-for="item in items" :key="item.ID" @click="onRowClick(item)">
             <td>{{ item.ID }}</td>
             <td>{{ item.Title }}</td>
             <td>{{ item.Contents }}</td>
