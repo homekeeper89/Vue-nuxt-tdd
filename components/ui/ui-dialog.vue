@@ -1,6 +1,6 @@
 <template>
   <div class="text-center">
-    <v-dialog v-model="dialog" width="500">
+    <v-dialog v-model="dialog" width="500" @input="v => v || doSomething()">
       <template v-slot:activator="{ on }">
         <v-btn color="red lighten-2" dark v-on="on" @click="test">Click Me</v-btn>
       </template>
@@ -48,6 +48,9 @@ export default {
     onClickAccept() {
       this.closeMethod();
       this.dialog = false;
+    },
+    doSomething(){
+      console.log("hello")
     }
   }
 };

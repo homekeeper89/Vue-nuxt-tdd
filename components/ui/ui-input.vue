@@ -32,6 +32,6 @@ export default {
   }),
   mounted() {
     this.title = this.someValue;
-  }
+  },
 };
 </script>

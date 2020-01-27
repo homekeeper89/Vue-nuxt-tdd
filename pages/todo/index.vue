@@ -2,8 +2,7 @@
   <div class="todo-index">
     <!-- <Header></Header> -->
     <div class="todo-dialog">
-      <Dialog :closeMethod="onClickAccept">
-      </Dialog>
+      <Dialog :closeMethod="onClickAccept" :dataDto="dataDto"></Dialog>
     </div>
     <div class="todo-btn-group">
       <UiButton :property="btnRegisterObj" :method="register">
@@ -42,7 +41,11 @@ export default {
       btnReportObj: {
         color: "error"
       },
-      name: ""
+      name: "",
+      dataDto: {
+        content: "",
+        footer: ""
+      }
     };
   },
   computed: {

@@ -23,23 +23,20 @@ export default {
   props: {
     closeMethod: {
       type: Function
+    },
+    dataDto: {
+      type: Object
     }
   },
   data() {
-    return {
-      dataDto: {
-        content: "",
-        footer: ""
-      }
-    };
+    return {};
   },
   methods: {
     getValue(childValue) {
       console.log(childValue);
     },
     onClickAccept() {
-      this.dataDto.content = "";
-      this.dataDto.footer = "";
+      this.dataDto.contents = null;
       this.closeMethod(this.dataDto);
     }
   }
