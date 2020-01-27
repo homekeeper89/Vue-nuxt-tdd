@@ -2,7 +2,7 @@
   <div class="todo-index">
     <!-- <Header></Header> -->
     <div class="todo-dialog">
-      <Dialog :closeMethod="onClickAccept" :dataDto="dataDto"></Dialog>
+      <Dialog @onClosed="onClickAccept" :dataDto="dataDto" :key="dataDto.rendererKey"></Dialog>
     </div>
     <div class="todo-btn-group">
       <UiButton :property="btnRegisterObj" :method="register">
@@ -44,7 +44,8 @@ export default {
       name: "",
       dataDto: {
         content: "",
-        footer: ""
+        footer: "",
+        rendererKey : 1,
       }
     };
   },
@@ -66,7 +67,15 @@ export default {
       console.log("i am cancel");
     },
     onClickAccept(childData){
-      console.log(childData);
+      console.log('index, onClosed');
+      const g_dataDto = this.dataDto
+      // FUNCTION
+      // 초기화 코드
+      for(const key in g_dataDto){
+        g_dataDto[key] = ''
+      }
+      g_dataDto.rendererKey += 1;
+      console.log(this.dataDto);
     }
   },
   mounted() {
