@@ -43,8 +43,11 @@ export default {
       },
       name: "",
       dataDto: {
+        id: 0,
         title: "",
-        contents: ""
+        contents: "",
+        created_at: "",
+        updated_at: ""
       }
     };
   },
@@ -53,8 +56,8 @@ export default {
   },
   watch: {
     dataDto(oldValue, newValue) {
-      console.log('watch', oldValue)
-      return oldValue;
+      console.log("watch", newValue.contents);
+      return newValue;
     }
   },
   methods: {

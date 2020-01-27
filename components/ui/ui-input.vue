@@ -1,8 +1,7 @@
 <template>
   <v-text-field
     :rules="rules"
-    v-model="childValue"
-    :value="title"
+    v-model="title"
     :label="label"
     @change="onChange"
   />

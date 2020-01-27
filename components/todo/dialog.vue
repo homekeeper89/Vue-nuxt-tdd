@@ -38,7 +38,7 @@ export default {
     onClickAccept() {
       this.closeMethod(this.dataDto);
     }
-  }
+  },
 };
 </script>
 
