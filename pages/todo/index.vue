@@ -12,7 +12,7 @@
         <template #button_name>취소</template>
       </UiButton>
     </div>
-    <Body :headers="getHeaders" :todoList="getTodoList"></Body>
+    <Body :headers="getHeaders" :todoList="getTodoList" :method="onRowClick"></Body>
     <Footer></Footer>
   </div>
 </template>
@@ -43,8 +43,8 @@ export default {
       },
       name: "",
       dataDto: {
-        content: "",
-        footer: ""
+        title: "",
+        contents: ""
       }
     };
   },
@@ -67,6 +67,9 @@ export default {
     },
     onClickAccept(childData){
       console.log(childData);
+    },
+    onRowClick(childItemId){
+      console.log("i am rowClick", childItemId)
     }
   },
   mounted() {

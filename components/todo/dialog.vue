@@ -1,12 +1,12 @@
 <template>
   <div class="row-dialog">
     <UiDialog :closeMethod="onClickAccept">
-      <template #title="slotProps">제목이에요</template>
-      <template #content="slotProps">
-        <UiInput :someValue="dataDto.content" :method="getValue"></UiInput>
+      <template #header="slotProps">제목이에요</template>
+      <template #title="slotProps">
+        <UiInput :someValue="dataDto.title" :method="getValue"></UiInput>
       </template>
-      <template #footer="slotProps">
-        <UiInput :someValue="dataDto.footer" :method="getValue"></UiInput>
+      <template #contents="slotProps">
+        <UiInput :someValue="dataDto.contents" :method="getValue"></UiInput>
       </template>
     </UiDialog>
   </div>
