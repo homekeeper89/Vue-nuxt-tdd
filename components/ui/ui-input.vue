@@ -1,10 +1,5 @@
 <template>
-  <v-text-field
-    :rules="parentRules"
-    v-model="title"
-    :label="label"
-    @change="onChange"
-  />
+  <v-text-field :rules="parentRules" v-model="value" :label="label" @change="onChange" />
 </template>
 <script>
 export default {
@@ -18,7 +13,7 @@ export default {
     method: {
       type: Function
     },
-    parentRules:{
+    parentRules: {
       type: Array
     }
   },
@@ -27,13 +22,15 @@ export default {
       this.method(this.childValue);
     }
   },
-  data: () => ({
-    rules: [value => !!value || "Required."],
-    title: "",
-    childValue: ""
-  }),
-  mounted() {
-    this.title = this.someValue;
+  data() {
+    return {
+      rules: [value => !!value || "Required."],
+      value: "",
+      childValue: ""
+    };
   },
+  mounted() {
+    this.value = this.someValue;
+  }
 };
 </script>

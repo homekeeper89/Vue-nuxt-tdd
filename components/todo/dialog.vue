@@ -3,10 +3,10 @@
     <UiDialog :closeMethod="onClickAccept">
       <template #header="slotProps">제목</template>
       <template #title="slotProps">
-        <UiInput :someValue="dataDto.title" :method="getValue" :rules="titleRules"></UiInput>
+        <UiInput :someValue="dataDto.title" :method="getValue" :rules="nameRules"></UiInput>
       </template>
       <template #contents="slotProps">
-        <UiInput :someValue="dataDto.contents" :method="getValue" :rules="contentRules"></UiInput>
+        <UiInput :someValue="dataDto.contents" :method="getValue" :rules="nameRules"></UiInput>
       </template>
     </UiDialog>
   </div>
@@ -30,8 +30,12 @@ export default {
   },
   data() {
     return {
-      titleRules: [value => !!value || "Required."],
-      contentRules:[value => !!value || "Required."]
+      titleRules: [() => !!value || "Required."],
+      contentRules:[() => !!value && value.length <= 5 || 'value must be less than 5 characters'],
+      nameRules: [
+        v => !!v || "Name is required",
+        v => (v && v.length <= 10) || "Name must be less than 10 characters"
+      ],
     };
   },
   methods: {
