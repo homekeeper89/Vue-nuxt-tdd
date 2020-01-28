@@ -3,10 +3,10 @@
     <UiDialog :closeMethod="onClickAccept">
       <template #header="slotProps">제목</template>
       <template #title="slotProps">
-        <UiInput :someValue="dataDto.title" :method="getValue"></UiInput>
+        <UiInput :someValue="dataDto.title" :method="getValue" :rules="titleRules"></UiInput>
       </template>
       <template #contents="slotProps">
-        <UiInput :someValue="dataDto.contents" :method="getValue"></UiInput>
+        <UiInput :someValue="dataDto.contents" :method="getValue" :rules="contentRules"></UiInput>
       </template>
     </UiDialog>
   </div>
@@ -29,7 +29,10 @@ export default {
     }
   },
   data() {
-    return {};
+    return {
+      titleRules: [value => !!value || "Required."],
+      contentRules:[value => !!value || "Required."]
+    };
   },
   methods: {
     getValue(childValue) {

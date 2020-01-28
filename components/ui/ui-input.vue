@@ -1,6 +1,6 @@
 <template>
   <v-text-field
-    :rules="rules"
+    :rules="parentRules"
     v-model="title"
     :label="label"
     @change="onChange"
@@ -17,6 +17,9 @@ export default {
     },
     method: {
       type: Function
+    },
+    parentRules:{
+      type: Array
     }
   },
   methods: {
