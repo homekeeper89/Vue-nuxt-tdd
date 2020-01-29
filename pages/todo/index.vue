@@ -12,7 +12,7 @@
         <template #button_name>취소</template>
       </UiButton>
     </div>
-    <Body :headers="getHeaders" :todoList="getTodoList"></Body>
+    <Body :headers="getHeaders" :todoList="getTodoList" data-cy="todo-table"></Body>
     <Footer></Footer>
   </div>
 </template>
