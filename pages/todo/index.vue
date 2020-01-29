@@ -12,7 +12,7 @@
         <template #button_name>취소</template>
       </UiButton>
     </div>
-    <Body :headers="getHeaders" :todoList="getTodoList"></Body>
+    <Body :headers="getHeaders" :todoList="getTodoList" data-cy="todo-table"></Body>
     <Footer></Footer>
   </div>
 </template>
@@ -57,17 +57,12 @@ export default {
     onClickMethod() {
       alert("hello world");
     },
-<<<<<<< HEAD
     computed:{
       ...mapGetters({
         logicData: 'getHelloThere',
         getTodoItems:'getTodoItems',
         getHeaders:'getHeaders'
         })
-=======
-    registerTodo() {
-      this.SET_TODOTITLE(this.$refs.todoInput.title);
->>>>>>> 1a634592ac94c3f41c3187e4e110dbc9cea777ce
     },
     register() {
       console.log("i am register");
