@@ -2,7 +2,7 @@
   <div class="text-center">
     <v-dialog v-model="dialog" width="500" @input="v => v || doSomething()">
       <template v-slot:activator="{ on }">
-        <v-btn color="red lighten-2" dark v-on="on" @click="test">Click Me</v-btn>
+        <v-btn color="red lighten-2" dark v-on="on" @click="test" data-cy='dialog-clickMe'>Click Me</v-btn>
       </template>
       <v-card>
         <div class="dialog-title">
