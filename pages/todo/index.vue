@@ -1,85 +1,97 @@
 <template>
   <div class="todo-index">
-    <Header></Header>
-    <div class="todo-input">
-      <UiInput ref="todoInput"></UiInput>
+    <!-- <Header></Header> -->
+    <div class="todo-dialog">
+      <Dialog @onClosed="onClickAccept" :dataDto="dataDto" :key="dataDto.rendererKey"></Dialog>
     </div>
     <div class="todo-btn-group">
-      <UiButton :property="btnRegisterObj" :functionName="'registerTodo'" v-on:registerTodo="registerTodo"></UiButton>
-      <UiButton :property="btnReportObj"></UiButton>
+      <UiButton :property="btnRegisterObj" :method="register">
+        <template #button_name>등록</template>
+      </UiButton>
+      <UiButton :property="btnReportObj" :method="cancel">
+        <template #button_name>취소</template>
+      </UiButton>
     </div>
-    <Body :headers="getHeaders" :todoItem="getTodoItems"></Body>
+    <Body :headers="getHeaders" :todoList="getTodoList"></Body>
     <Footer></Footer>
   </div>
 </template>
 
 <script>
-  import Body from '@/components/todo/Body';
-  import Footer from '@/components/todo/Footer'
-  import Header from '@/components/todo/Header'
-  import UiButton from '@/components/ui/ui-button-primary'
-  import UiInput from '@/components/ui/ui-input'
-  import { mapGetters, mapMutations, mapState } from 'vuex'
+import Body from "@/components/todo/Body";
+import Footer from "@/components/todo/Footer";
+import Header from "@/components/todo/Header";
+import UiButton from "@/components/ui/ui-button-primary";
+import Dialog from "@/components/todo/Dialog";
+import { mapGetters, mapMutations, mapState } from "vuex";
 
-  export default {
-    components:{
-      Body, Footer, Header, UiButton, UiInput
-    },
-    data(){
-      return{
-        btnRegisterObj:{
-          color:"primary",
-          name:'등록'
-        },
-        btnReportObj:{
-          color:"error",
-          name:"신고"
-        },
-        // headers: [
-        //   {
-        //     text: 'ID',
-        //     align: 'center',
-        //     sortable: false,
-        //     value: 'ID',
-        //   },
-        //   { text: 'Title', value: 'Title' },
-        //   { text: 'Contents', value: 'Contents' },
-        //   { text: 'Created_at', value: 'Created_at' },
-        //   { text: 'Updated_at', value: 'Updated_at' },
-        // ],
-        // desserts: [
-        //   {
-        //     ID: 1,
-        //     Title: 'Vue Todo project',
-        //     Contents: 'Finish Some feature',
-        //     Created_at: new Date(),
-        //     Updated_at: new Date(),
-        //   }
-        // ],
+export default {
+  components: {
+    Body,
+    Footer,
+    Header,
+    Dialog,
+    UiButton
+  },
+  data() {
+    return {
+      btnRegisterObj: {
+        color: "primary"
+      },
+      btnReportObj: {
+        color: "error"
+      },
+      name: "",
+      dataDto: {
+        content: "",
+        footer: "",
+        rendererKey : 1,
       }
+    };
+  },
+  computed: {
+    ...mapGetters(["getTodoTitle", "getTodoList", "getHeaders"])
+  },
+  methods: {
+    ...mapMutations(["SET_TODOTITLE"]),
+    onClickMethod() {
+      alert("hello world");
     },
+<<<<<<< HEAD
     computed:{
       ...mapGetters({
         logicData: 'getHelloThere',
         getTodoItems:'getTodoItems',
         getHeaders:'getHeaders'
         })
+=======
+    registerTodo() {
+      this.SET_TODOTITLE(this.$refs.todoInput.title);
+>>>>>>> 1a634592ac94c3f41c3187e4e110dbc9cea777ce
     },
-    methods:{
-      ...mapMutations(
-        ['SET_TODOTITLE']
-      ),
-      onClickMethod(){
-        alert("hello world")
-      },
-      registerTodo(){
-        this.SET_TODOTITLE(this.$refs.todoInput.title)
-        console.log(this.logicData)
+    register() {
+      console.log("i am register");
+    },
+    cancel() {
+      console.log("i am cancel");
+    },
+    onClickAccept(childData){
+      console.log('index, onClosed');
+      const g_dataDto = this.dataDto
+      // FUNCTION
+      // 초기화 코드
+      for(const key in g_dataDto){
+        g_dataDto[key] = ''
       }
+      g_dataDto.rendererKey += 1;
+      console.log(this.dataDto);
     }
+  },
+  mounted() {
+    this.headers;
   }
+};
 </script>
 
 <style lang="scss" scoped>
-
 </style>

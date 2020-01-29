@@ -1,5 +1,5 @@
 export default {
-  getHelloThere: state => state.newTodoTitle,
-  getTodoItems:state=>state.items,
-  getHeaders:state=>state.headers
+  getTodoTitle: state => state.newTodoTitle,
+  getTodoList:state => state.todoList,
+  getHeaders:state => state.headers
 }

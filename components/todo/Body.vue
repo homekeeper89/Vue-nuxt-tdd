@@ -2,7 +2,7 @@
   <div class="todo-body">
     <v-data-table
     :headers="headers"
-    :items="todoItem"
+    :items="todoList"
     :items-per-page="5"
     class="elevation-1"
   ></v-data-table>
@@ -15,7 +15,7 @@
       headers:{
         type:Array
       },
-      todoItem:{
+      todoList:{
         type:Array
       }
     },

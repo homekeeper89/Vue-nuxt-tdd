@@ -24,7 +24,7 @@ const state = {
     { text: 'Created_at', value: 'Created_at' },
     { text: 'Updated_at', value: 'Updated_at' },
   ],
-  items: [
+  todoList: [
     {
       ID: 1,
       Title: 'Vue Todo project',
