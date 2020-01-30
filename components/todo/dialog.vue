@@ -3,10 +3,10 @@
     <UiDialog @onClosed="onClickAccept">
       <template #title="slotProps">제목이에요</template>
       <template #content="slotProps">
-        <UiInput :someValue="dataDto.content" :method="getValue"></UiInput>
+        <UiInput :someValue="dataDto.content" :method="getValue" data-cy="todo-input-content"></UiInput>
       </template>
       <template #footer="slotProps">
-        <UiInput :someValue="dataDto.footer" :method="getValue"></UiInput>
+        <UiInput :someValue="dataDto.footer" :method="getValue" data-cy="todo-input-footer"></UiInput>
       </template>
     </UiDialog>
   </div>
