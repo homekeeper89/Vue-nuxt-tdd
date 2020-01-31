@@ -40,6 +40,10 @@ const state = {
       Updated_at: new Date(),
     }
   ],
+  newTodoObj:{
+    Contents:'',
+    Title:'',
+  }
 }
 
 export default {
