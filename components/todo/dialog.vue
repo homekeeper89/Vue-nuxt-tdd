@@ -37,9 +37,6 @@ export default {
       console.log("footer", childValue)
     },
     onClickAccept() {
-      // FIXME
-      // why not work?
-      console.log('dialog, onClosed')
       this.$parent.$emit('onClosed')
     },
   },
