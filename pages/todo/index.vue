@@ -71,6 +71,8 @@ export default {
       console.log("i am cancel");
     },
     onClickAccept(childData){
+      // 등록할 경우 > 초기화 하고, mutation을 통해서 데이터 집어 넣는다.
+      // 등록할 경우 > 초기화 하고, getter을 통해서 값을 가져온다.
       console.log('index, onClosed');
       const g_dataDto = this.dataDto
       // FUNCTION
@@ -79,7 +81,7 @@ export default {
         g_dataDto[key] = ''
       }
       g_dataDto.rendererKey += 1;
-      console.log(this.dataDto);
+      // console.log(this.dataDto);
     }
   },
   mounted() {

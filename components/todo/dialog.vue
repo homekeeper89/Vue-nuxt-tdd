@@ -15,6 +15,8 @@
 <script>
 import UiDialog from "@/components/ui/ui-dialog";
 import UiInput from "@/components/ui/ui-input";
+import { mapGetters, mapMutations, mapState } from "vuex";
+
 export default {
   components: {
     UiDialog,
@@ -29,14 +31,21 @@ export default {
     return {
     };
   },
+  computed:{
+    ...mapGetters(["getTodoNew"])
+  },
   methods: {
+    ...mapMutations(["SET_CONTENTS", "SET_TITLE"]),
     getContents(childValue) {
       console.log("contents", childValue);
+      this.$store.commit("SET_CONTENTS", childValue)
     },
     getFooter(childValue){
       console.log("footer", childValue)
+      this.SET_TITLE(childValue)
     },
     onClickAccept() {
+      console.log(this.getTodoNew());
       this.$parent.$emit('onClosed')
     },
   },
