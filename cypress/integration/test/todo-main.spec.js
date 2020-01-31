@@ -8,7 +8,7 @@ describe("todo main test", () => {
     cy.get("[data-cy=todo-table]").find('tr').its('length').should('eq', 3)
   });
 
-  it('Click add row', ()=>{
+  it('Click row and add something', ()=>{
     cy.get("[data-cy=dialog-clickMe]").click()
     cy.get("[data-cy=todo--input--content").type("some words")
     cy.get("[data-cy=todo--input--footer").type("some footer")

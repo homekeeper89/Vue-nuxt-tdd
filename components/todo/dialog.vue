@@ -3,10 +3,10 @@
     <UiDialog @onClosed="onClickAccept">
       <template #title>제목이에요</template>
       <template #content>
-        <UiInput :someValue="dataDto.content" :method="getValue" data-cy="todo--input--content"></UiInput>
+        <UiInput :someValue="dataDto.content" :method="getContents" data-cy="todo--input--content"></UiInput>
       </template>
       <template #footer>
-        <UiInput :someValue="dataDto.footer" :method="getValue" data-cy="todo--input--footer"></UiInput>
+        <UiInput :someValue="dataDto.footer" :method="getFooter" data-cy="todo--input--footer"></UiInput>
       </template>
     </UiDialog>
   </div>
@@ -30,8 +30,11 @@ export default {
     };
   },
   methods: {
-    getValue(childValue) {
-      console.log(childValue);
+    getContents(childValue) {
+      console.log("contents", childValue);
+    },
+    getFooter(childValue){
+      console.log("footer", childValue)
     },
     onClickAccept() {
       // FIXME

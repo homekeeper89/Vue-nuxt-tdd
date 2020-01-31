@@ -39,7 +39,6 @@ export default {
   methods: {
     test() {
       console.log('ui-dialog, sonCreated')
-      this.$parent.$emit('onCreated')
     },
     onClickAccept() {
       this.$parent.$emit('onClosed')
