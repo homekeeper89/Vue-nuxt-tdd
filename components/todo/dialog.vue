@@ -42,6 +42,9 @@ export default {
     getValue(childValue) {
       console.log(childValue);
     },
+    getContents(){
+      console.log("kkk")
+    },
     onClickAccept() {
       this.closeMethod(this.dataDto);
     }
