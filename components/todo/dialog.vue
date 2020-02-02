@@ -5,8 +5,8 @@
       <template #content="slotProps">
         <UiInput :someValue="dataDto.content" :method="getValue"></UiInput>
       </template>
-      <template #footer="slotProps">
-        <UiInput :someValue="dataDto.footer" :method="getValue"></UiInput>
+      <template #contents="slotProps">
+        <UiInput :someValue="dataDto.contents" :method="getValue" :rules="nameRules"></UiInput>
       </template>
     </UiDialog>
   </div>
@@ -32,6 +32,9 @@ export default {
   methods: {
     getValue(childValue) {
       console.log(childValue);
+    },
+    getContents(){
+      console.log("kkk")
     },
     onClickAccept() {
       // FIXME

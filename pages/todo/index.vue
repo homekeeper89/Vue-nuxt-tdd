@@ -12,7 +12,7 @@
         <template #button_name>취소</template>
       </UiButton>
     </div>
-    <Body :headers="getHeaders" :todoList="getTodoList"></Body>
+    <Body :headers="getHeaders" :todoList="getTodoList" :method="onRowClick"></Body>
     <Footer></Footer>
   </div>
 </template>
@@ -51,6 +51,12 @@ export default {
   },
   computed: {
     ...mapGetters(["getTodoTitle", "getTodoList", "getHeaders"])
+  },
+  watch: {
+    dataDto(oldValue, newValue) {
+      console.log("watch", newValue.contents);
+      return newValue;
+    }
   },
   methods: {
     ...mapMutations(["SET_TODOTITLE"]),
