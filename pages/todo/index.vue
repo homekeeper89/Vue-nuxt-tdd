@@ -2,7 +2,7 @@
   <div class="todo-index">
     <!-- <Header></Header> -->
     <div class="todo-dialog">
-      <Dialog :closeMethod="onClickAccept" :dataDto="dataDto"></Dialog>
+      <Dialog :closeMethod="onClickAccept" :dataDto="dataDto" :key="dataDto.id"></Dialog>
     </div>
     <div class="todo-btn-group">
       <UiButton :property="btnRegisterObj" :method="register">
