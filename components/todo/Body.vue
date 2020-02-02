@@ -39,6 +39,9 @@ export default {
     onRowClick(itemId) {
       this.method(itemId);
     }
+  },
+  mounted() {
+    console.log(this.headers, this.todoItem);
   }
 };
 </script>
