@@ -1,12 +1,12 @@
 <template>
   <div class="row-dialog">
     <UiDialog @onClosed="onClickAccept">
-      <template #title="slotProps">제목이에요</template>
-      <template #content="slotProps">
-        <UiInput :someValue="dataDto.content" :method="getValue"></UiInput>
+      <template #title>제목이에요</template>
+      <template #content>
+        <UiInput :someValue="dataDto.content" :method="getContents" data-cy="todo--input--content"></UiInput>
       </template>
-      <template #contents="slotProps">
-        <UiInput :someValue="dataDto.contents" :method="getValue" :rules="nameRules"></UiInput>
+      <template #footer>
+        <UiInput :someValue="dataDto.footer" :method="getFooter" data-cy="todo--input--footer"></UiInput>
       </template>
     </UiDialog>
   </div>
@@ -15,6 +15,8 @@
 <script>
 import UiDialog from "@/components/ui/ui-dialog";
 import UiInput from "@/components/ui/ui-input";
+import { mapGetters, mapMutations, mapState } from "vuex";
+
 export default {
   components: {
     UiDialog,
@@ -29,17 +31,24 @@ export default {
     return {
     };
   },
+  computed:{
+    ...mapGetters(["getTodoNew"])
+  },
   methods: {
-    getValue(childValue) {
-      console.log(childValue);
+    ...mapMutations(["SET_CONTENTS", "SET_TITLE"]),
+    getContents(childValue) {
+      console.log("contents", childValue);
+      this.$store.commit("SET_CONTENTS", childValue)
+    },
+    getFooter(childValue){
+      console.log("footer", childValue)
+      this.SET_TITLE(childValue)
     },
     getContents(){
       console.log("kkk")
     },
     onClickAccept() {
-      // FIXME
-      // why not work?
-      console.log('dialog, onClosed')
+      console.log(this.getTodoNew());
       this.$parent.$emit('onClosed')
     },
   },

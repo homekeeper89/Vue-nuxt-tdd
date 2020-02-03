@@ -24,6 +24,7 @@ import Header from "@/components/todo/Header";
 import UiButton from "@/components/ui/ui-button-primary";
 import Dialog from "@/components/todo/Dialog";
 import { mapGetters, mapMutations, mapState } from "vuex";
+import axios from "axios"
 
 export default {
   components: {
@@ -77,6 +78,8 @@ export default {
       console.log("i am cancel");
     },
     onClickAccept(childData){
+      // 등록할 경우 > 초기화 하고, mutation을 통해서 데이터 집어 넣는다.
+      // 등록할 경우 > 초기화 하고, getter을 통해서 값을 가져온다.
       console.log('index, onClosed');
       const g_dataDto = this.dataDto
       // FUNCTION
@@ -86,11 +89,14 @@ export default {
         g_dataDto.rendererKey = Math.random()
       }
       g_dataDto.rendererKey += 1;
-      console.log(this.dataDto);
+      // console.log(this.dataDto);
     }
   },
   mounted() {
     this.headers;
+    axios.get('https://jsonplaceholder.typicode.com/todos/1').then((resp)=>{
+      console.log(resp)
+    })
   }
 };
 </script>
