@@ -1,5 +1,5 @@
 <template>
-  <v-text-field :rules="parentRules" v-model="value" :label="label" @change="onChange" />
+  <v-text-field :rules="parentRules" v-model="value" :label="label" @change="onChange(value)" />
 </template>
 <script>
 export default {
@@ -18,8 +18,9 @@ export default {
     }
   },
   methods: {
-    onChange() {
-      this.method(this.childValue);
+    onChange(value) {
+      console.log("나는 뭐지????", this.method)
+      this.method(value);
     }
   },
   data() {

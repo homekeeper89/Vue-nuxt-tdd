@@ -41,8 +41,8 @@ const state = {
     }
   ],
   newTodoObj:{
-    Contents:'',
-    Title:'',
+    contents:'',
+    title:'',
   }
 }
 

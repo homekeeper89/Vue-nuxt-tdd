@@ -61,7 +61,7 @@ export default {
   },
   methods: {
     ...mapMutations(["SET_TODOTITLE"]),
-    onClickMethod() {
+    onRowClick() {
       alert("hello world");
     },
     computed:{

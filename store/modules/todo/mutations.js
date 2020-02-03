@@ -4,10 +4,10 @@ export default {
     state.newTodoTitle = todoTitle
   },
   SET_CONTENTS(state, contents){
-    state.newTodoObj.Contents = contents
+    state.newTodoObj.contents = contents
   },
   SET_TITLE(state, title){
-    state.newTodoObj.Title = title
+    state.newTodoObj.title = title
   }
 
 }
