@@ -23,7 +23,7 @@
         <v-divider></v-divider>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="primary" text @click="onClickAccept">I accept</v-btn>
+          <v-btn color="primary" text @click="onClickAccept" data-cy="todo--btn__agree">I accept</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -39,7 +39,6 @@ export default {
   methods: {
     test() {
       console.log('ui-dialog, sonCreated')
-      this.$parent.$emit('onCreated')
     },
     onClickAccept() {
       this.$parent.$emit('onClosed')
