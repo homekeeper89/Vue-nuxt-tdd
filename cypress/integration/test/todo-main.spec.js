@@ -14,4 +14,11 @@ describe("todo main test", () => {
     cy.get("[data-cy=todo--input--footer").type("some footer")
     cy.get("[data-cy=todo--btn__agree]").click()
   })
+
+  it('responds with the stub', () => {
+    cy.server();
+    cy.route('https://jsonplaceholder.typicode.com/todos/1', { id: 1, name: 'Phoebe'});
+    cy.visit('/todo');         // the url to visit in your app
+    
+  });
 });

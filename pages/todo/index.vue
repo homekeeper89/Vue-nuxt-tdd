@@ -24,6 +24,7 @@ import Header from "@/components/todo/Header";
 import UiButton from "@/components/ui/ui-button-primary";
 import Dialog from "@/components/todo/Dialog";
 import { mapGetters, mapMutations, mapState } from "vuex";
+import axios from "axios"
 
 export default {
   components: {
@@ -86,6 +87,9 @@ export default {
   },
   mounted() {
     this.headers;
+    axios.get('https://jsonplaceholder.typicode.com/todos/1').then((resp)=>{
+      console.log(resp)
+    })
   }
 };
 </script>
