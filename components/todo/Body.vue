@@ -33,8 +33,8 @@ export default {
     return {};
   },
   methods: {
-    onRowClick(itemId) {
-      this.method(itemId);
+    onRowClick(item) {
+      this.method(item);
     }
   },
   mounted() {
