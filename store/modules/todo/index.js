@@ -46,7 +46,8 @@ const state = {
     title:'',
     created_at:'',
     updated_at:''
-  }
+  },
+  dialog:false
 }
 
 export default {

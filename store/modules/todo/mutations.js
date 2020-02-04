@@ -24,5 +24,8 @@ export default {
       created_at: '',
       updated_at: ''
     }
+  },
+  SET_DIALOG(state){
+    state.dialog = !state.dialog
   }
 }

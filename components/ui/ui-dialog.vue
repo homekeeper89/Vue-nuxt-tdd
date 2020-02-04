@@ -1,6 +1,6 @@
 <template>
   <div class="text-center">
-    <v-dialog v-model="dialog" width="500" @input="v => v || doSomething()">
+    <v-dialog v-model="getDialog" width="500" @input="v => v || doSomething()">
       <template v-slot:activator="{ on }">
         <v-btn color="red lighten-2" dark v-on="on" @click="test" data-cy='dialog-clickMe'>Click Me</v-btn>
       </template>
@@ -36,6 +36,9 @@ export default {
     return {
       dialog: false
     };
+  },
+  computed:{
+    ...mapGetters(['getDialog'])
   },
   methods: {
     ...mapMutations({
