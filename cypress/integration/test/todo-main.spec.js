@@ -11,7 +11,7 @@ describe("todo main test", () => {
   it('Click row and add something', ()=>{
     cy.get("[data-cy=dialog-clickMe]").click()
     cy.get("[data-cy=todo--input--content").type("some words")
-    cy.get("[data-cy=todo--input--footer").type("some footer")
+    cy.get("[data-cy=todo--input--title").type("some title")
     cy.get("[data-cy=todo--btn__agree]").click()
   })
 

@@ -45,7 +45,7 @@ export default {
       name: "",
       dataDto: {
         content: "",
-        footer: "",
+        title: "",
         rendererKey : 1,
       }
     };
@@ -61,8 +61,10 @@ export default {
   },
   methods: {
     ...mapMutations(["SET_TODOTITLE"]),
-    onClickMethod() {
-      alert("hello world");
+    onRowClick(item) {
+      console.log(item)
+      this.dataDto.content = item.content
+      this.dataDto.footer = item.title
     },
     computed:{
       ...mapGetters({

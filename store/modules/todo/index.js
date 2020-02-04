@@ -34,7 +34,7 @@ const state = {
     },
     {
       id: 2,
-      title: 'Vue Todo project',
+      title: 'Flask Todo project',
       contents: 'Finish Some feature',
       created_at: new Date(),
       updated_at: new Date(),

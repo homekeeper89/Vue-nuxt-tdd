@@ -5,8 +5,8 @@
       <template #content>
         <UiInput :someValue="dataDto.content" :method="getContents" data-cy="todo--input--content"></UiInput>
       </template>
-      <template #footer>
-        <UiInput :someValue="dataDto.footer" :method="getFooter" data-cy="todo--input--footer"></UiInput>
+      <template #title>
+        <UiInput :someValue="dataDto.title" :method="getTitle" data-cy="todo--input--title"></UiInput>
       </template>
     </UiDialog>
   </div>
@@ -37,15 +37,12 @@ export default {
   methods: {
     ...mapMutations(["SET_CONTENTS", "SET_TITLE"]),
     getContents(childValue) {
-      console.log("contents", childValue);
       this.SET_CONTENTS(childValue)
     },
-    getFooter(childValue){
-      console.log("footer", childValue)
+    getTitle(childValue){
       this.SET_TITLE(childValue)
     },
     onClickAccept() {
-      console.log(this.getTodoNew());
       this.$parent.$emit('onClosed')
     },
   },

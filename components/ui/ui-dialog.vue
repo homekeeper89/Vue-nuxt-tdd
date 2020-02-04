@@ -17,7 +17,7 @@
         </div>
         <div class="dialog-contents">
           <v-card-text>
-            <slot name="footer">기본 이름</slot>
+            <slot name="title">기본 이름</slot>
           </v-card-text>
         </div>
         <v-divider></v-divider>
