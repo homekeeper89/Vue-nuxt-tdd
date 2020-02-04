@@ -38,14 +38,11 @@ export default {
     ...mapMutations(["SET_CONTENTS", "SET_TITLE"]),
     getContents(childValue) {
       console.log("contents", childValue);
-      this.$store.commit("SET_CONTENTS", childValue)
+      this.SET_CONTENTS(childValue)
     },
     getFooter(childValue){
       console.log("footer", childValue)
       this.SET_TITLE(childValue)
-    },
-    getContents(){
-      console.log("kkk")
     },
     onClickAccept() {
       console.log(this.getTodoNew());
