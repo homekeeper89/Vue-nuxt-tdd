@@ -19,7 +19,7 @@ export default {
   },
   methods: {
     onChange() {
-      this.method(this.childValue);
+      this.method(this.value);
     }
   },
   data() {

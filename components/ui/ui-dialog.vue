@@ -12,12 +12,12 @@
         </div>
         <div class="dialog-title">
           <v-card-text>
-            <slot name="title">기본 이름</slot>
+            <slot name="content">기본 이름</slot>
           </v-card-text>
         </div>
         <div class="dialog-contents">
           <v-card-text>
-            <slot name="contents">기본 이름</slot>
+            <slot name="footer">기본 이름</slot>
           </v-card-text>
         </div>
         <v-divider></v-divider>
@@ -30,6 +30,7 @@
   </div>
 </template>
 <script>
+import { mapGetters, mapMutations, mapState } from "vuex";
 export default {
   data() {
     return {
@@ -37,11 +38,14 @@ export default {
     };
   },
   methods: {
+    ...mapMutations({
+      'addTodoObj':"SET_TODOOBJ"
+    }),
     test() {
       console.log('ui-dialog, sonCreated')
     },
     onClickAccept() {
-      this.$parent.$emit('onClosed')
+      this.addTodoObj()
       this.dialog = false;
     },
     doSomething(){
