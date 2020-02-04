@@ -41,8 +41,11 @@ const state = {
     }
   ],
   newTodoObj:{
-    Contents:'',
-    Title:'',
+    id:0,
+    contents:'',
+    title:'',
+    created_at:'',
+    updated_at:''
   }
 }
 
