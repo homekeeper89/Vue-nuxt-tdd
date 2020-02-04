@@ -15,9 +15,6 @@
     </v-data-table>
   </div>
 </template>
-    </v-data-table>
-  </div>
-</template>
 
 <script>
 export default {
