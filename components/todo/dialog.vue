@@ -3,10 +3,10 @@
     <UiDialog @onClosed="onClickAccept">
       <template #title>제목이에요</template>
       <template #content>
-        <UiInput :someValue="dataDto.content" :method="getContents" data-cy="todo--input--content"></UiInput>
+        <UiInput :someValue="dataDto.content" :method="getContents" data-cy="todo__dialog__input--content"></UiInput>
       </template>
       <template #title>
-        <UiInput :someValue="dataDto.title" :method="getTitle" data-cy="todo--input--title"></UiInput>
+        <UiInput :someValue="dataDto.title" :method="getTitle" data-cy="todo__dialog__input--title"></UiInput>
       </template>
     </UiDialog>
   </div>

@@ -2,7 +2,7 @@
   <div class="text-center">
     <v-dialog v-model="getDialog" width="500" @input="v => v || doSomething()">
       <template v-slot:activator="{ on }">
-        <v-btn color="red lighten-2" dark v-on="on" @click="test" data-cy='dialog-clickMe'>Click Me</v-btn>
+        <v-btn color="red lighten-2" dark v-on="on" @click="test" data-cy='todo__dialog__btn--register'>Click Me</v-btn>
       </template>
       <v-card>
         <div class="dialog-title">
@@ -23,7 +23,7 @@
         <v-divider></v-divider>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="primary" text @click="onClickAccept" data-cy="todo--btn__agree">I accept</v-btn>
+          <v-btn color="primary" text @click="onClickAccept" data-cy="todo__dialog__btn--accept">I accept</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>

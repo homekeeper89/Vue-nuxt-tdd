@@ -12,7 +12,7 @@
         <template #button_name>취소</template>
       </UiButton>
     </div>
-    <Body :headers="getHeaders" :todoList="getTodoList" :method="onRowClick" data-cy="todo-table"></Body>
+    <Body :headers="getHeaders" :todoList="getTodoList" :method="onRowClick" data-cy="todo__table"></Body>
     <Footer></Footer>
   </div>
 </template>
