@@ -38,7 +38,6 @@ export default {
     }
   },
   mounted() {
-    console.log(this.headers, this.todoItem);
   }
 };
 </script>

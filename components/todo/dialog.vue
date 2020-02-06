@@ -46,6 +46,9 @@ export default {
       this.$parent.$emit('onClosed')
     },
   },
+  mounted(){
+    console.log(this.dataDto)
+  }
 };
 </script>
 
