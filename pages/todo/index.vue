@@ -44,8 +44,8 @@ export default {
       },
       name: "",
       dataDto: {
-        content: "",
-        title: "",
+        content: "default",
+        title: "default>>>>",
         rendererKey: 1
       }
     };
@@ -55,6 +55,7 @@ export default {
   },
   watch: {
     dataDto(oldValue, newValue) {
+      console.log("index watch", oldValue.title, newValue.title)
       return newValue;
     }
   },

@@ -27,8 +27,15 @@ export default {
       type: Object
     }
   },
+  watch:{
+    dataDto(oldValue, newValue){
+      console.log(">>>>", oldValue)
+      this.dataEntity = oldValue
+    }
+  },
   data() {
     return {
+      dataEntity:''
     };
   },
   computed:{
