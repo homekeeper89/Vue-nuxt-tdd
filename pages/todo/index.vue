@@ -44,8 +44,8 @@ export default {
       },
       name: "",
       dataDto: {
-        content: "default",
-        title: "default>>>>",
+        content: "default content",
+        title: "default title",
         rendererKey: 1
       }
     };
@@ -62,8 +62,9 @@ export default {
   methods: {
     ...mapMutations(["SET_TODOTITLE", "SET_DIALOG"]),
     onRowClick(item) {
+      console.log(item)
       this.dataDto.content = item.content;
-      this.dataDto.footer = item.title;
+      this.dataDto.title = item.title;
       this.SET_DIALOG();
     },
     computed: {
