@@ -22,8 +22,11 @@ describe("todo main test", () => {
     const title = "Flask Todo project"
     const contents = "Finish Some feature"
     cy.get("[data-cy=todo__table]").contains('td', title).click()
-    cy.log(cy.get("[data-cy=todo__dialog__input--title]").find('input').text)
-    cy.get("[data-cy=todo__dialog__input--content]").should('contain', contents)
+    cy.get("[data-cy=todo__dialog__input--title]").find('input').invoke('text').then((text)=>{
+      cy.log(">>>>>>", text)
+    })
+    cy.get("[data-cy=todo__dialog__input--title]").find('input').invoke('text').should("contain", title);
+    // cy.get("[data-cy=todo__dialog__input--content]").should('contain', contents)
 
   })
   // it('responds with the stub', () => {
