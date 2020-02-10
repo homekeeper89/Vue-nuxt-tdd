@@ -26,12 +26,7 @@ describe("todo main test", () => {
       cy.log(">>>>>>", text)
     })
     cy.get("[data-cy=todo__dialog__input--title]").find('input').invoke('val').should("contain", title);
-    // cy.get("[data-cy=todo__dialog__input--content]").should('contain', contents)
-
+    cy.get("[data-cy=todo__dialog__input--content]").find('input').invoke('val').should("contain", contents);
   })
-  // it('responds with the stub', () => {
-  //   cy.server();
-  //   cy.route('https://jsonplaceholder.typicode.com/todos/1', { id: 1, name: 'Phoebe'});
-  //   cy.visit('/todo');         // the url to visit in your app
-  // });
+  
 });
