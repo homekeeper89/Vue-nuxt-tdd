@@ -1,4 +1,6 @@
 describe("todo main test", () => {
+  const title = "Flask Todo project"
+  const contents = "Finish Some feature"
 
   beforeEach(() => {
     cy.visit('/todo')
@@ -8,7 +10,7 @@ describe("todo main test", () => {
     cy.get("[data-cy=todo__table]").find('tr').its('length').should('eq', 3)
   });
 
-  it('Click Me and add something', ()=>{
+  it('Click Me and add something', () => {
     cy.get("[data-cy=todo__dialog__btn--register]").click()
     cy.get("[data-cy=todo__dialog__input--content]").type("some words")
     cy.get("[data-cy=todo__dialog__input--title]").type("some title")
@@ -18,15 +20,17 @@ describe("todo main test", () => {
     cy.get("[data-cy=todo__table]").last().contains('td', 'some words')
   })
 
-  it('Row Click and show data', ()=>{
-    const title = "Flask Todo project"
-    const contents = "Finish Some feature"
+  it('Row Click and show data', () => {
     cy.get("[data-cy=todo__table]").contains('td', title).click()
-    cy.get("[data-cy=todo__dialog__input--title]").find('input').invoke('text').then((text)=>{
-      cy.log(">>>>>>", text)
-    })
     cy.get("[data-cy=todo__dialog__input--title]").find('input').invoke('val').should("contain", title);
     cy.get("[data-cy=todo__dialog__input--content]").find('input').invoke('val').should("contain", contents);
   })
-  
+
+  it('Click, update and click i accept', () => {
+    cy.get("[data-cy=todo__table]").contains('td', title).click()
+    cy.get("[data-cy=todo__dialog__input--title]").find('input').as('title')
+    cy.get("@title").clear()
+    cy.get("@title").type("some text")
+  })
+
 });
