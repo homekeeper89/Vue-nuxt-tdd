@@ -34,6 +34,9 @@ describe("todo main test", () => {
     cy.get("@content").clear()
     cy.get("@title").type("some text")
     cy.get("@content").type("some content")
+    cy.get("[data-cy=todo__dialog__btn--accept]").click()
+    cy.wait(2000)
+    cy.get("[data-cy=todo__table]").last().contains('td', 'some words')
   })
 
 });
