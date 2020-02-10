@@ -29,8 +29,11 @@ describe("todo main test", () => {
   it('Click, update and click i accept', () => {
     cy.get("[data-cy=todo__table]").contains('td', title).click()
     cy.get("[data-cy=todo__dialog__input--title]").find('input').as('title')
+    cy.get("[data-cy=todo__dialog__input--content]").find('input').as('content')
     cy.get("@title").clear()
+    cy.get("@content").clear()
     cy.get("@title").type("some text")
+    cy.get("@content").type("some content")
   })
 
 });
