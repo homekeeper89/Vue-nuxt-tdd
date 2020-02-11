@@ -18,9 +18,14 @@ export default {
     }
   },
   methods: {
+<<<<<<< HEAD
     onChange(value) {
       console.log("나는 뭐지????", this.method)
       this.method(value);
+=======
+    onChange() {
+      this.method(this.value);
+>>>>>>> dbaa18083a84a61699785ed517fae25a77f35c39
     }
   },
   data() {

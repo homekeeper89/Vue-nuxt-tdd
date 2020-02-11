@@ -3,10 +3,10 @@
     <UiDialog @onClosed="onClickAccept">
       <template #title>제목이에요</template>
       <template #content>
-        <UiInput :someValue="dataDto.content" :method="getContents" data-cy="todo--input--content"></UiInput>
+        <UiInput :someValue="dataDto.title" :method="getContents" data-cy="todo__dialog__input--title"></UiInput>
       </template>
-      <template #footer>
-        <UiInput :someValue="dataDto.footer" :method="getFooter" data-cy="todo--input--footer"></UiInput>
+      <template #title>
+        <UiInput :someValue="dataDto.content" :method="getTitle" data-cy="todo__dialog__input--content"></UiInput>
       </template>
     </UiDialog>
   </div>
@@ -29,6 +29,7 @@ export default {
   },
   data() {
     return {
+      dataEntity:''
     };
   },
   computed:{
@@ -39,14 +40,16 @@ export default {
     getContents(childValue) {
       this.SET_CONTENTS(childValue)
     },
-    getFooter(childValue){
+    getTitle(childValue){
       this.SET_TITLE(childValue)
     },
     onClickAccept() {
-      console.log(this.getTodoNew());
       this.$parent.$emit('onClosed')
     },
   },
+  mounted(){
+    console.log(this.dataDto)
+  }
 };
 </script>
 

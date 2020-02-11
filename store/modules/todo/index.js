@@ -20,7 +20,7 @@ const state = {
       value: 'ID',
     },
     { text: 'Title', value: 'title' },
-    { text: 'Contents', value: 'contents' },
+    { text: 'Contents', value: 'content' },
     { text: 'Created_at', value: 'created_at' },
     { text: 'Updated_at', value: 'updated_at' },
   ],
@@ -28,22 +28,26 @@ const state = {
     {
       id: 1,
       title: 'Vue Todo project',
-      contents: 'Start Some feature',
+      content: 'Start Some feature',
       created_at: new Date(),
       updated_at: new Date(),
     },
     {
       id: 2,
-      title: 'Vue Todo project',
-      contents: 'Finish Some feature',
+      title: 'Flask Todo project',
+      content: 'Finish Some feature',
       created_at: new Date(),
       updated_at: new Date(),
     }
   ],
   newTodoObj:{
-    contents:'',
+    id:0,
+    content:'',
     title:'',
-  }
+    created_at:'',
+    updated_at:''
+  },
+  dialog:false
 }
 
 export default {

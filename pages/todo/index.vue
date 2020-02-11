@@ -12,7 +12,7 @@
         <template #button_name>취소</template>
       </UiButton>
     </div>
-    <Body :headers="getHeaders" :todoList="getTodoList" :method="onRowClick" data-cy="todo-table"></Body>
+    <Body :headers="getHeaders" :todoList="getTodoList" :method="onRowClick" data-cy="todo__table"></Body>
     <Footer></Footer>
   </div>
 </template>
@@ -24,7 +24,7 @@ import Header from "@/components/todo/Header";
 import UiButton from "@/components/ui/ui-button-primary";
 import Dialog from "@/components/todo/Dialog";
 import { mapGetters, mapMutations, mapState } from "vuex";
-import axios from "axios"
+import axios from "axios";
 
 export default {
   components: {
@@ -44,9 +44,9 @@ export default {
       },
       name: "",
       dataDto: {
-        content: "",
-        footer: "",
-        rendererKey : 1,
+        content: "default content",
+        title: "default title",
+        rendererKey: 1
       }
     };
   },
@@ -55,21 +55,24 @@ export default {
   },
   watch: {
     dataDto(oldValue, newValue) {
-      console.log("watch", newValue.contents);
+      console.log("index watch", oldValue.title, newValue.title)
       return newValue;
     }
   },
   methods: {
-    ...mapMutations(["SET_TODOTITLE"]),
-    onRowClick() {
-      alert("hello world");
+    ...mapMutations(["SET_TODOTITLE", "SET_DIALOG"]),
+    onRowClick(item) {
+      console.log(item)
+      this.dataDto.content = item.content;
+      this.dataDto.title = item.title;
+      this.SET_DIALOG();
     },
-    computed:{
+    computed: {
       ...mapGetters({
-        logicData: 'getHelloThere',
-        getTodoItems:'getTodoItems',
-        getHeaders:'getHeaders'
-        })
+        logicData: "getHelloThere",
+        getTodoItems: "getTodoItems",
+        getHeaders: "getHeaders"
+      })
     },
     register() {
       console.log("i am register");
@@ -77,16 +80,16 @@ export default {
     cancel() {
       console.log("i am cancel");
     },
-    onClickAccept(childData){
+    onClickAccept(childData) {
       // 등록할 경우 > 초기화 하고, mutation을 통해서 데이터 집어 넣는다.
       // 등록할 경우 > 초기화 하고, getter을 통해서 값을 가져온다.
-      console.log('index, onClosed');
-      const g_dataDto = this.dataDto
+      console.log("index, onClosed");
+      const g_dataDto = this.dataDto;
       // FUNCTION
       // 초기화 코드
-      for(const key in g_dataDto){
-        g_dataDto[key] = ''
-        g_dataDto.rendererKey = Math.random()
+      for (const key in g_dataDto) {
+        g_dataDto[key] = "";
+        g_dataDto.rendererKey = Math.random();
       }
       g_dataDto.rendererKey += 1;
       // console.log(this.dataDto);
@@ -94,9 +97,9 @@ export default {
   },
   mounted() {
     this.headers;
-    axios.get('https://jsonplaceholder.typicode.com/todos/1').then((resp)=>{
-      console.log(resp)
-    })
+    axios.get("https://jsonplaceholder.typicode.com/todos/1").then(resp => {
+      console.log(resp);
+    });
   }
 };
 </script>

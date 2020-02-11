@@ -15,9 +15,6 @@
     </v-data-table>
   </div>
 </template>
-    </v-data-table>
-  </div>
-</template>
 
 <script>
 export default {
@@ -36,12 +33,11 @@ export default {
     return {};
   },
   methods: {
-    onRowClick(itemId) {
-      this.method(itemId);
+    onRowClick(item) {
+      this.method(item);
     }
   },
   mounted() {
-    console.log(this.headers, this.todoItem);
   }
 };
 </script>
