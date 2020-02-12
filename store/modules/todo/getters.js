@@ -3,5 +3,6 @@ export default {
   getTodoList:state => state.todoList,
   getHeaders:state => state.headers,
   getTodoNew:state=>state.newTodoObj,
-  getDialog:state=>state.dialog
+  getDialog:state=>state.dialog,
+  getNewTodos:state=>state.NEW_TODO
 }

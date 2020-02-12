@@ -4,11 +4,10 @@
       <template v-slot:body="{ items }">
         <tbody>
           <tr v-for="item in items" :key="item.id" @click="onRowClick(item)">
+            <td>{{ item.userId }}</td>
             <td>{{ item.id }}</td>
             <td>{{ item.title }}</td>
-            <td>{{ item.contents }}</td>
-            <td>{{ item.created_at }}</td>
-            <td>{{ item.updated_at }}</td>
+            <td>{{ item.body }}</td>
           </tr>
         </tbody>
       </template>

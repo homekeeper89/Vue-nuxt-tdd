@@ -12,7 +12,7 @@
         <template #button_name>취소</template>
       </UiButton>
     </div>
-    <Body :headers="getHeaders" :todoList="getTodoList" :method="onRowClick" data-cy="todo__table"></Body>
+    <Body :headers="getHeaders" :todoList="getNewTodos" :method="onRowClick" data-cy="todo__table"></Body>
     <Footer></Footer>
   </div>
 </template>
@@ -43,14 +43,14 @@ export default {
       },
       name: "",
       dataDto: {
-        content: "default content",
+        body: "default content",
         title: "default title",
         rendererKey: 1
       }
     };
   },
   computed: {
-    ...mapGetters(["getTodoTitle", "getTodoList", "getHeaders"])
+    ...mapGetters(["getTodoTitle", "getTodoList", "getHeaders", "getNewTodos"])
   },
   watch: {
     dataDto(oldValue, newValue) {
@@ -62,8 +62,7 @@ export default {
     ...mapMutations(["SET_TODOTITLE", "SET_DIALOG"]),
     ...mapActions(["getAllTodoFromServer"]),
     onRowClick(item) {
-      console.log(item)
-      this.dataDto.content = item.content;
+      this.dataDto.body = item.body;
       this.dataDto.title = item.title;
       this.SET_DIALOG();
     },
