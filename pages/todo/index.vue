@@ -23,8 +23,7 @@ import Footer from "@/components/todo/Footer";
 import Header from "@/components/todo/Header";
 import UiButton from "@/components/ui/ui-button-primary";
 import Dialog from "@/components/todo/Dialog";
-import { mapGetters, mapMutations, mapState } from "vuex";
-import axios from "axios";
+import { mapGetters, mapMutations, mapState, mapActions } from "vuex";
 
 export default {
   components: {
@@ -61,6 +60,7 @@ export default {
   },
   methods: {
     ...mapMutations(["SET_TODOTITLE", "SET_DIALOG"]),
+    ...mapActions(["getAllTodoFromServer"]),
     onRowClick(item) {
       console.log(item)
       this.dataDto.content = item.content;
@@ -97,9 +97,7 @@ export default {
   },
   mounted() {
     this.headers;
-    axios.get("https://jsonplaceholder.typicode.com/todos/1").then(resp => {
-      console.log(resp);
-    });
+    this.getAllTodoFromServer();
   }
 };
 </script>
