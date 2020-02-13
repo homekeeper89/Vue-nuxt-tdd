@@ -3,6 +3,17 @@ describe("todo main test", () => {
   const contents = "quia et suscipitsuscipit recusandae consequuntur expedita et cumreprehenderit molestiae ut ut quas totamnostrum rerum est autem sunt rem eveniet architecto"
 
   beforeEach(() => {
+    cy.server()
+    cy.route({ 
+      method: 'GET', 
+      url: 'https://jsonplaceholder.typicode.com/posts',
+      response:[{
+        userId:1,
+        id:1,
+        title:'test Server'
+      }
+      ]
+    })
     cy.visit('/todo')
   })
 
@@ -11,6 +22,8 @@ describe("todo main test", () => {
   // });
 
   it('Click Me and add something', () => {
+    
+
     cy.get("[data-cy=todo__dialog__btn--register]").click()
     cy.get("[data-cy=todo__dialog__input--content]").type("some words")
     cy.get("[data-cy=todo__dialog__input--title]").type("some title")
