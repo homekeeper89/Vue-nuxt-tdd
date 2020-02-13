@@ -10,7 +10,8 @@ describe("todo main test", () => {
       response:[{
         userId:1,
         id:1,
-        title:'test Server'
+        title:'test Server',
+        body:'I am body'
       }
       ]
     })
