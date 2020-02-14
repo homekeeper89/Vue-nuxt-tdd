@@ -1,6 +1,6 @@
 describe("todo main test", () => {
-  const title = "sunt aut facere repellat provident occaecati excepturi optio reprehenderit"
-  const contents = "quia et suscipitsuscipit recusandae consequuntur expedita et cumreprehenderit molestiae ut ut quas totamnostrum rerum est autem sunt rem eveniet architecto"
+  const title = 'test Server'
+  const body = 'I am body'
 
   beforeEach(() => {
     cy.server()
@@ -10,21 +10,15 @@ describe("todo main test", () => {
       response:[{
         userId:1,
         id:1,
-        title:'test Server',
-        body:'I am body'
+        title:title,
+        body:body
       }
       ]
     })
     cy.visit('/todo')
   })
 
-  // it("Count todo count", () => {
-  //   cy.get("[data-cy=todo__table]").find('tr').its('length').should('eq', 6)
-  // });
-
   it('Click Me and add something', () => {
-    
-
     cy.get("[data-cy=todo__dialog__btn--register]").click()
     cy.get("[data-cy=todo__dialog__input--content]").type("some words")
     cy.get("[data-cy=todo__dialog__input--title]").type("some title")
@@ -37,7 +31,7 @@ describe("todo main test", () => {
   it('Row Click and show data', () => {
     cy.get("[data-cy=todo__table]").contains('td', title).click()
     cy.get("[data-cy=todo__dialog__input--title]").find('input').invoke('val').should("contain", title);
-    cy.get("[data-cy=todo__dialog__input--content]").find('input').invoke('val').should("contain", contents);
+    cy.get("[data-cy=todo__dialog__input--content]").find('input').invoke('val').should("contain", body);
   })
 
   it('Click, update and click i accept', () => {
