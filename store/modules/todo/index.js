@@ -10,44 +10,28 @@ const inBrowser = typeof window !== 'undefined';
 // if in browser, use pre-fetched state injected by SSR
 // const state = (inBrowser && window.__INITIAL_STATE__) ? window.__INITIAL_STATE__.page : defaultState;
 const state = {
-  newTodoTitle:'',
-  newTodoDate:new Date().getDate,
+  newTodoTitle: '',
+  newTodoDate: new Date().getDate,
   headers: [
+    { text: 'userId', value: 'userId' },
     {
-      text: 'ID',
+      text: 'id',
       align: 'center',
       sortable: false,
       value: 'ID',
     },
-    { text: 'Title', value: 'title' },
-    { text: 'Contents', value: 'content' },
-    { text: 'Created_at', value: 'created_at' },
-    { text: 'Updated_at', value: 'updated_at' },
+    { text: 'title', value: 'title' },
+    { text: 'body', value: 'body' },
   ],
-  todoList: [
-    {
-      id: 1,
-      title: 'Vue Todo project',
-      content: 'Start Some feature',
-      created_at: new Date(),
-      updated_at: new Date(),
-    },
-    {
-      id: 2,
-      title: 'Flask Todo project',
-      content: 'Finish Some feature',
-      created_at: new Date(),
-      updated_at: new Date(),
-    }
-  ],
-  newTodoObj:{
-    id:0,
-    content:'',
-    title:'',
-    created_at:'',
-    updated_at:''
+  newTodoObj: {
+    userId:0,
+    id: 0,
+    body: '',
+    title: '',
   },
-  dialog:false
+  NEW_TODO: []
+  ,
+  dialog: false
 }
 
 export default {

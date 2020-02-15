@@ -12,7 +12,7 @@
         <template #button_name>취소</template>
       </UiButton>
     </div>
-    <Body :headers="getHeaders" :todoList="getTodoList" :method="onRowClick" data-cy="todo__table"></Body>
+    <Body :headers="getHeaders" :todoList="getNewTodos" :method="onRowClick" data-cy="todo__table"></Body>
     <Footer></Footer>
   </div>
 </template>
@@ -23,8 +23,7 @@ import Footer from "@/components/todo/Footer";
 import Header from "@/components/todo/Header";
 import UiButton from "@/components/ui/ui-button-primary";
 import Dialog from "@/components/todo/Dialog";
-import { mapGetters, mapMutations, mapState } from "vuex";
-import axios from "axios";
+import { mapGetters, mapMutations, mapState, mapActions } from "vuex";
 
 export default {
   components: {
@@ -44,14 +43,14 @@ export default {
       },
       name: "",
       dataDto: {
-        content: "default content",
+        body: "default content",
         title: "default title",
         rendererKey: 1
       }
     };
   },
   computed: {
-    ...mapGetters(["getTodoTitle", "getTodoList", "getHeaders"])
+    ...mapGetters(["getTodoTitle", "getTodoList", "getHeaders", "getNewTodos"])
   },
   watch: {
     dataDto(oldValue, newValue) {
@@ -61,9 +60,9 @@ export default {
   },
   methods: {
     ...mapMutations(["SET_TODOTITLE", "SET_DIALOG"]),
+    ...mapActions(["getAllTodoFromServer"]),
     onRowClick(item) {
-      console.log(item)
-      this.dataDto.content = item.content;
+      this.dataDto.body = item.body;
       this.dataDto.title = item.title;
       this.SET_DIALOG();
     },
@@ -97,9 +96,7 @@ export default {
   },
   mounted() {
     this.headers;
-    axios.get("https://jsonplaceholder.typicode.com/todos/1").then(resp => {
-      console.log(resp);
-    });
+    this.getAllTodoFromServer();
   }
 };
 </script>
