@@ -47,4 +47,9 @@ describe("todo main test", () => {
     cy.get("[data-cy=todo__table]").last().contains('td', 'some words')
   })
 
+  it('Some api for test', ()=>{
+    cy.server()
+    cy.fixture('house/allHouse.json').as('getAllHouse');
+    cy.route('GET', 'api/v2/todos', '@getAllHouse')
+  })
 });
