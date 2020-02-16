@@ -1,5 +1,5 @@
 <template>
-  <v-text-field :rules="parentRules" v-model="value" :label="label" @change="onChange" />
+  <v-text-field :rules="parentRules" v-model="value" :label="label" @change="onChange(value)" />
 </template>
 <script>
 export default {

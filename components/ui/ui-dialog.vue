@@ -7,7 +7,7 @@
       <v-card>
         <div class="dialog-title">
           <v-card-title class="headline grey lighten-2" primary-title>
-            <slot name="header">기본 제목</slot>
+            <slot name="title">기본 제목</slot>
           </v-card-title>
         </div>
         <div class="dialog-title">
