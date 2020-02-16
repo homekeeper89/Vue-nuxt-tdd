@@ -4,16 +4,12 @@ describe("todo main test", () => {
 
   beforeEach(() => {
     cy.server()
-    cy.route({ 
-      method: 'GET', 
-      url: 'https://jsonplaceholder.typicode.com/posts',
-      response:[{
-        userId:1,
-        id:1,
-        title:title,
-        body:body
-      }
-      ]
+    cy.fixture('todo/getTodoAll').then((getTodoAll)=>{
+      cy.route({ 
+        method: 'GET', 
+        url: 'https://jsonplaceholder.typicode.com/posts',
+        response:[getTodoAll]
+      })
     })
     cy.visit('/todo')
   })
