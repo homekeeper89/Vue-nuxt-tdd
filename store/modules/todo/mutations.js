@@ -1,31 +1,28 @@
 
 export default {
-  SET_TODOTITLE(state, todoTitle) {
-    state.newTodoTitle = todoTitle
-  },
-  SET_CONTENTS(state, contents) {
-    state.newTodoObj.contents = contents
+  SET_BODY(state, body) {
+    state.newTodoObj.body = body
   },
   SET_TITLE(state, title) {
     state.newTodoObj.title = title
   },
   SET_TODOOBJ(state) {
-    state.newTodoObj.id = state.todoList.length + 1
-    state.newTodoObj.created_at = new Date();
-    state.newTodoObj.updated_at = new Date();
-    state.todoList.push(state.newTodoObj)
+    state.newTodoObj.id = state.NEW_TODO.length + 1
+    state.NEW_TODO.unshift(state.newTodoObj)
     this.commit("SET_NEWTODO_EMPTY")
   },
   SET_NEWTODO_EMPTY(state) {
     state.newTodoObj = {
+      userId:0,
       id: 0,
-      contents: '',
+      body: '',
       title: '',
-      created_at: '',
-      updated_at: ''
     }
   },
   SET_DIALOG(state){
     state.dialog = !state.dialog
+  },
+  SET_NEWTODOS(state, payload){
+    state.NEW_TODO = payload
   }
 }

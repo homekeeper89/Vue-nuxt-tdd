@@ -3,10 +3,10 @@
     <UiDialog @onClosed="onClickAccept">
       <template #title>제목이에요</template>
       <template #content>
-        <UiInput :someValue="dataDto.title" :method="getContents" data-cy="todo__dialog__input--title"></UiInput>
+        <UiInput :someValue="dataDto.title" :method="getTitle" data-cy="todo__dialog__input--title"></UiInput>
       </template>
       <template #title>
-        <UiInput :someValue="dataDto.content" :method="getTitle" data-cy="todo__dialog__input--content"></UiInput>
+        <UiInput :someValue="dataDto.body" :method="getBody" data-cy="todo__dialog__input--content"></UiInput>
       </template>
     </UiDialog>
   </div>
@@ -36,9 +36,9 @@ export default {
     ...mapGetters(["getTodoNew"])
   },
   methods: {
-    ...mapMutations(["SET_CONTENTS", "SET_TITLE"]),
-    getContents(childValue) {
-      this.SET_CONTENTS(childValue)
+    ...mapMutations(["SET_BODY", "SET_TITLE"]),
+    getBody(childValue) {
+      this.SET_BODY(childValue)
     },
     getTitle(childValue){
       this.SET_TITLE(childValue)
