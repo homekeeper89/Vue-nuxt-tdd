@@ -38,9 +38,11 @@ export default {
   methods: {
     ...mapMutations(["SET_BODY", "SET_TITLE"]),
     getBody(childValue) {
+      console.log("body", childValue)
       this.SET_BODY(childValue)
     },
     getTitle(childValue){
+      console.log("title", childValue)
       this.SET_TITLE(childValue)
     },
     onClickAccept() {
