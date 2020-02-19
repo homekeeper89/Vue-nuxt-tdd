@@ -57,7 +57,7 @@ export default {
       this.changeDialogStatus()
     },
     doSomething(){
-      console.log("hello")
+      this.changeDialogStatus()
     }
   }
 };
