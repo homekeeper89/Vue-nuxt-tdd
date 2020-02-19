@@ -45,11 +45,12 @@ describe("todo main test", () => {
 
   it('Some api for test', ()=>{
     cy.server()
-    cy.fixture('house/allHouse.json').as('getAllHouse');
-    cy.route({
-      method: 'GET',
-      url:'api/v2/todos',
-      response:getAllHouse
+    cy.fixture('house/allHouse.json').then((getAllHouse)=>{
+      cy.route({
+        method: 'GET',
+        url:'api/v2/todos',
+        response:getAllHouse
+      })
     })
   })
 });
