@@ -1,13 +1,13 @@
 <template>
   <div class="text-center">
-    <v-dialog v-model="getDialog" width="500" @input="v => v || doSomething()">
+    <v-dialog v-model="checkDialogStatus" width="500" @input="v => v || doSomething()">
       <template v-slot:activator="{ on }">
         <v-btn color="red lighten-2" dark v-on="on" @click="test" data-cy='todo__dialog__btn--register'>Click Me</v-btn>
       </template>
       <v-card>
         <div class="dialog-title">
           <v-card-title class="headline grey lighten-2" primary-title>
-            <slot name="title">기본 제목</slot>
+            <slot name="main">기본 제목</slot>
           </v-card-title>
         </div>
         <div class="dialog-title">
@@ -38,18 +38,23 @@ export default {
     };
   },
   computed:{
-    ...mapGetters(['getDialog'])
+    ...mapGetters(['getDialog']),
+    checkDialogStatus(){
+      console.log(this.getDialog)
+      return this.getDialog
+    }
   },
   methods: {
     ...mapMutations({
-      'addTodoObj':"SET_TODOOBJ"
+      'addTodoObj':"SET_TODOOBJ",
+      'changeDialogStatus':"SET_DIALOG"
     }),
     test() {
       console.log('ui-dialog, sonCreated')
     },
     onClickAccept() {
       this.addTodoObj()
-      this.dialog = false;
+      this.changeDialogStatus()
     },
     doSomething(){
       console.log("hello")

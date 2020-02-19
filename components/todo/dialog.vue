@@ -1,7 +1,7 @@
 <template>
   <div class="row-dialog">
     <UiDialog @onClosed="onClickAccept">
-      <template #title>제목이에요</template>
+      <template #main>제목이에요</template>
       <template #content>
         <UiInput :someValue="dataDto.title" :method="getTitle" data-cy="todo__dialog__input--title"></UiInput>
       </template>
