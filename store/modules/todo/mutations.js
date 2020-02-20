@@ -19,9 +19,6 @@ export default {
       title: '',
     }
   },
-  SET_DIALOG(state){
-    state.dialog = !state.dialog
-  },
   SET_NEWTODOS(state, payload){
     state.NEW_TODO = payload
   }

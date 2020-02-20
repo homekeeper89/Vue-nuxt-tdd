@@ -1,6 +1,6 @@
 <template>
   <div class="text-center">
-    <v-dialog v-model="checkDialogStatus" width="500" @input="v => v || doSomething()">
+    <v-dialog v-model="isDialogOn" width="500" @input="v => v || doSomething()">
       <template v-slot:activator="{ on }">
         <v-btn color="red lighten-2" dark v-on="on" @click="test" data-cy='todo__dialog__btn--register'>Click Me</v-btn>
       </template>
@@ -34,27 +34,22 @@ import { mapGetters, mapMutations, mapState } from "vuex";
 export default {
   data() {
     return {
-      dialog: false
+      isDialogOn: false
     };
   },
   computed:{
-    ...mapGetters(['getDialog']),
-    checkDialogStatus(){
-      console.log(this.getDialog)
-      return this.getDialog
-    }
+    
   },
   methods: {
     ...mapMutations({
       'addTodoObj':"SET_TODOOBJ",
-      'changeDialogStatus':"SET_DIALOG"
     }),
     test() {
       console.log('ui-dialog, sonCreated')
     },
     onClickAccept() {
       this.addTodoObj()
-      this.changeDialogStatus()
+      this.isDialogOn = false
     },
     doSomething(){
       this.changeDialogStatus()

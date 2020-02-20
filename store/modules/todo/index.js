@@ -30,8 +30,6 @@ const state = {
     title: '',
   },
   NEW_TODO: []
-  ,
-  dialog: false
 }
 
 export default {
