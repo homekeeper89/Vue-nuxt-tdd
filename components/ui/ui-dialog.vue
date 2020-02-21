@@ -1,6 +1,6 @@
 <template>
   <div class="text-center">
-    <v-dialog v-model="getDialogFlag" width="500" @input="v => v || doSomething()">
+    <v-dialog v-model="isDialogOn" width="500" @input="v => v || doSomething()">
       <template v-slot:activator="{ on }">
         <v-btn
           color="red lighten-2"
@@ -45,22 +45,35 @@ import { mapGetters, mapMutations, mapState } from "vuex";
 export default {
   data() {
     return {
-      isDialogOn: false
+      // isDialogOn: false
     };
   },
   computed:{
-    ...mapGetters(['getDialogFlag'])
+    ...mapMutations(["SET_DIALOG_FLAG_FALSE"]),
+    ...mapGetters(['getDialogFlag']),
+    isDialogOn : {
+      get:function(){
+        return this.getDialogFlag
+      },
+      set:function(){
+        this.setFalse()
+      }
+    }
   },
   methods: {
     ...mapMutations({
-      addTodoObj: "SET_TODOOBJ"
+      addTodoObj: "SET_TODOOBJ",
+      setDialogFlagFalse:"SET_DIALOG_FLAG_FALSE"
     }),
     test() {
       console.log("ui-dialog, sonCreated");
     },
+    setFalse(){
+      this.setDialogFlagFalse()
+    },
     onClickAccept() {
       this.addTodoObj();
-      this.isDialogOn = false;
+      this.isDialogOn = false
     },
     doSomething() {
       this.isDialogOn = false;

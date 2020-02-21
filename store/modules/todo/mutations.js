@@ -24,6 +24,8 @@ export default {
   },
   SET_DIALOG_FLAG_TRUE(state){
     state.dialogFlag = true;
-    console.log(state.dialogFlag)
+  },
+  SET_DIALOG_FLAG_FALSE(state){
+    state.dialogFlag = false;
   }
 }
