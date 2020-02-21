@@ -59,12 +59,12 @@ export default {
     }
   },
   methods: {
-    ...mapMutations(["SET_TODOTITLE", "SET_DIALOG"]),
+    ...mapMutations(["SET_TODOTITLE", "SET_DIALOG_FLAG_TRUE"]),
     ...mapActions(["getAllTodoFromServer"]),
     onRowClick(item) {
       this.dataDto.body = item.body;
       this.dataDto.title = item.title;
-      this.SET_DIALOG();
+      this.SET_DIALOG_FLAG_TRUE();
     },
     computed: {
       ...mapGetters({

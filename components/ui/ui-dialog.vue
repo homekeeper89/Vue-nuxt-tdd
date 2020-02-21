@@ -1,8 +1,14 @@
 <template>
   <div class="text-center">
-    <v-dialog v-model="isDialogOn" width="500" @input="v => v || doSomething()">
+    <v-dialog v-model="getDialogFlag" width="500" @input="v => v || doSomething()">
       <template v-slot:activator="{ on }">
-        <v-btn color="red lighten-2" dark v-on="on" @click="test" data-cy='todo__dialog__btn--register'>Click Me</v-btn>
+        <v-btn
+          color="red lighten-2"
+          dark
+          v-on="on"
+          @click="test"
+          data-cy="todo__dialog__btn--register"
+        >Click Me</v-btn>
       </template>
       <v-card>
         <div class="dialog-title">
@@ -23,7 +29,12 @@
         <v-divider></v-divider>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn color="primary" text @click="onClickAccept" data-cy="todo__dialog__btn--accept">I accept</v-btn>
+          <v-btn
+            color="primary"
+            text
+            @click="onClickAccept"
+            data-cy="todo__dialog__btn--accept"
+          >I accept</v-btn>
         </v-card-actions>
       </v-card>
     </v-dialog>
@@ -38,21 +49,21 @@ export default {
     };
   },
   computed:{
-    
+    ...mapGetters(['getDialogFlag'])
   },
   methods: {
     ...mapMutations({
-      'addTodoObj':"SET_TODOOBJ",
+      addTodoObj: "SET_TODOOBJ"
     }),
     test() {
-      console.log('ui-dialog, sonCreated')
+      console.log("ui-dialog, sonCreated");
     },
     onClickAccept() {
-      this.addTodoObj()
-      this.isDialogOn = false
+      this.addTodoObj();
+      this.isDialogOn = false;
     },
-    doSomething(){
-      this.changeDialogStatus()
+    doSomething() {
+      this.isDialogOn = false;
     }
   }
 };

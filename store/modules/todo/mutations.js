@@ -21,5 +21,9 @@ export default {
   },
   SET_NEWTODOS(state, payload){
     state.NEW_TODO = payload
+  },
+  SET_DIALOG_FLAG_TRUE(state){
+    state.dialogFlag = true;
+    console.log(state.dialogFlag)
   }
 }
