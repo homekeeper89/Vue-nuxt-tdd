@@ -1,7 +1,7 @@
 <template>
   <div class="row-dialog">
     <UiDialog @onClosed="onClickAccept">
-      <template #title>제목이에요</template>
+      <template #main>제목이에요</template>
       <template #content>
         <UiInput :someValue="dataDto.title" :method="getTitle" data-cy="todo__dialog__input--title"></UiInput>
       </template>
@@ -38,9 +38,11 @@ export default {
   methods: {
     ...mapMutations(["SET_BODY", "SET_TITLE"]),
     getBody(childValue) {
+      console.log("body", childValue)
       this.SET_BODY(childValue)
     },
     getTitle(childValue){
+      console.log("title", childValue)
       this.SET_TITLE(childValue)
     },
     onClickAccept() {

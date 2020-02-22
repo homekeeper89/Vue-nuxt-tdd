@@ -29,9 +29,8 @@ const state = {
     body: '',
     title: '',
   },
-  NEW_TODO: []
-  ,
-  dialog: false
+  NEW_TODO: [],
+  dialogFlag:false
 }
 
 export default {
