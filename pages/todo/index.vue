@@ -62,6 +62,7 @@ export default {
     ...mapMutations(["SET_TODOTITLE", "SET_DIALOG_FLAG_TRUE"]),
     ...mapActions(["getAllTodoFromServer"]),
     onRowClick(item) {
+      console.log(item)
       this.dataDto.body = item.body;
       this.dataDto.title = item.title;
       this.SET_DIALOG_FLAG_TRUE();
