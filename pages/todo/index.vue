@@ -23,7 +23,7 @@ import Footer from "@/components/todo/Footer";
 import Header from "@/components/todo/Header";
 import UiButton from "@/components/ui/ui-button-primary";
 import Dialog from "@/components/todo/Dialog";
-import { mapGetters, mapMutations, mapState, mapActions } from "vuex";
+import { mapGetters, mapMutations, mapActions } from "vuex";
 
 export default {
   components: {
