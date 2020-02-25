@@ -54,7 +54,6 @@ export default {
   },
   watch: {
     dataDto(oldValue, newValue) {
-      console.log("index watch", oldValue.title, newValue.title)
       return newValue;
     }
   },
