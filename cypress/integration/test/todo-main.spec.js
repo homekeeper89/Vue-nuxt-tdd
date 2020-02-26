@@ -30,7 +30,7 @@ describe("todo main test", () => {
     cy.get("[data-cy=todo__table]").last().contains('td', 'some words')
   })
 
-  it.only('클릭하고 data제대로 modal에 불러 오는지', () => {
+  it('클릭하고 data제대로 modal에 불러 오는지', () => {
     cy.fixture('todo/getTodoAll').then((getTodoAll) => {
       cy.server()
       cy.route({
@@ -44,7 +44,7 @@ describe("todo main test", () => {
     cy.get("[data-cy=todo__dialog__input--content]").find('input').invoke('val').should("contain", body);
   })
 
-  it('Click, update and click i accept', () => {
+  it.only('Click, update and click i accept', () => {
     cy.get("[data-cy=todo__table]").contains('td', title).click()
     cy.get("[data-cy=todo__dialog__input--title]").find('input').as('title')
     cy.get("[data-cy=todo__dialog__input--content]").find('input').as('content')
@@ -54,7 +54,7 @@ describe("todo main test", () => {
     cy.get("@content").type("some content")
     cy.get("[data-cy=todo__dialog__btn--accept]").click()
     cy.wait(2000)
-    cy.get("[data-cy=todo__table]").last().contains('td', 'some words')
+    cy.get("[data-cy=todo__table]").first().contains('td', 'some text')
   })
 
   it('Some api for test', () => {

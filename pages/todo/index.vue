@@ -54,7 +54,7 @@ export default {
   },
   watch: {
     dataDto(oldValue, newValue) {
-      console.log("index watch", oldValue.title, newValue.title)
+      console.log("index watch", oldValue.title, newValue.title);
       return newValue;
     }
   },
@@ -62,9 +62,10 @@ export default {
     ...mapMutations(["SET_TODOTITLE", "SET_DIALOG_FLAG_TRUE"]),
     ...mapActions(["getAllTodoFromServer"]),
     onRowClick(item) {
-      console.log(item)
+      console.log("onClick", item);
+      // this.$set(this.dataDto, "body", item.body);
+      // this.$set(this.dataDto, "title", item.title);
       this.dataDto.body = item.body;
-      this.dataDto.title = item.title;
       this.SET_DIALOG_FLAG_TRUE();
     },
     computed: {

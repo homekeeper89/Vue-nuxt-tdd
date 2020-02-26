@@ -35,6 +35,11 @@ export default {
   computed:{
     ...mapGetters(["getTodoNew"])
   },
+  watch:{
+    dataDto(oldVal, newVal){
+      console.log(">>>>>>>", oldVal, newVal)
+    }
+  },
   methods: {
     ...mapMutations(["SET_BODY", "SET_TITLE"]),
     getBody(childValue) {
@@ -50,7 +55,7 @@ export default {
     },
   },
   mounted(){
-    console.log(this.dataDto)
+    console.log("마운티드", this.dataDto)
   }
 };
 </script>
