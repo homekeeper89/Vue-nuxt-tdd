@@ -1,6 +1,6 @@
 describe("todo main test", () => {
-  const title = 'test Server'
-  const body = 'I am body'
+  const title = 'i am fixture title'
+  const body = 'i am fixture body'
 
   before(() => {
     cy.fixture('todo/getTodoAll').then((getTodoAll) => {
