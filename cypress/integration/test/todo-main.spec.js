@@ -39,13 +39,13 @@ describe("todo main test", () => {
         response: [getTodoAll]
       })
     })
-    cy.get("[data-cy=todo__table]").find('tbody').find('tr').click()
-    cy.get("[data-cy=todo__dialog__input--title]").find('input').invoke('val').should("contain", title);
-    cy.get("[data-cy=todo__dialog__input--content]").find('input').invoke('val').should("contain", body);
+    cy.get("[data-cy=todo__table]").find('tbody').find('tr').first().click({force: true})
+    cy.get("[data-cy=todo__dialog__input--title]").find('input').invoke('val').should("contain", "some title");
+    cy.get("[data-cy=todo__dialog__input--content]").find('input').invoke('val').should("contain", "some words");
   })
 
-  it.only('Click, update and click i accept', () => {
-    cy.get("[data-cy=todo__table]").contains('td', title).click()
+  it('Click, update and click i accept', () => {
+    cy.get("[data-cy=todo__table]").contains('td', title).click({force: true})
     cy.get("[data-cy=todo__dialog__input--title]").find('input').as('title')
     cy.get("[data-cy=todo__dialog__input--content]").find('input').as('content')
     cy.get("@title").clear()
