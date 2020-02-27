@@ -52,12 +52,6 @@ export default {
   computed: {
     ...mapGetters(["getTodoTitle", "getTodoList", "getHeaders", "getNewTodos"])
   },
-  watch: {
-    dataDto(oldValue, newValue) {
-      console.log("index watch", oldValue.title, newValue.title);
-      return newValue;
-    }
-  },
   methods: {
     ...mapMutations(["SET_TODOTITLE", "SET_DIALOG_FLAG_TRUE"]),
     ...mapActions(["getAllTodoFromServer"]),
