@@ -17,6 +17,11 @@ export default {
       type: Array
     }
   },
+  watch:{
+    someValue(oldValue, newValue){
+      this.value = oldValue
+    }
+  },
   methods: {
     onChange() {
       this.method(this.value);
