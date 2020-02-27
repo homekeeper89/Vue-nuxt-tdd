@@ -19,10 +19,13 @@ export default {
       title: '',
     }
   },
-  SET_DIALOG(state){
-    state.dialog = !state.dialog
-  },
   SET_NEWTODOS(state, payload){
     state.NEW_TODO = payload
+  },
+  SET_DIALOG_FLAG_TRUE(state){
+    state.dialogFlag = true;
+  },
+  SET_DIALOG_FLAG_FALSE(state){
+    state.dialogFlag = false;
   }
 }

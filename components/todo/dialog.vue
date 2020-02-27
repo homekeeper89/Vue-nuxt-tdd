@@ -1,12 +1,12 @@
 <template>
   <div class="row-dialog">
     <UiDialog @onClosed="onClickAccept">
-      <template #title>제목이에요</template>
+      <template #main>제목이에요</template>
       <template #content>
-        <UiInput :someValue="dataDto.title" :method="getTitle" data-cy="todo__dialog__input--title"></UiInput>
+        <UiInput :someValue="dataEntity.title" :method="getTitle" data-cy="todo__dialog__input--title"></UiInput>
       </template>
       <template #title>
-        <UiInput :someValue="dataDto.body" :method="getBody" data-cy="todo__dialog__input--content"></UiInput>
+        <UiInput :someValue="dataEntity.body" :method="getBody" data-cy="todo__dialog__input--content"></UiInput>
       </template>
     </UiDialog>
   </div>
@@ -33,14 +33,16 @@ export default {
     };
   },
   computed:{
-    ...mapGetters(["getTodoNew"])
+    ...mapGetters(["getTodoNew"]),
   },
   methods: {
     ...mapMutations(["SET_BODY", "SET_TITLE"]),
     getBody(childValue) {
+      console.log("body", childValue)
       this.SET_BODY(childValue)
     },
     getTitle(childValue){
+      console.log("title", childValue)
       this.SET_TITLE(childValue)
     },
     onClickAccept() {
@@ -48,7 +50,7 @@ export default {
     },
   },
   mounted(){
-    console.log(this.dataDto)
+    this.dataEntity = this.dataDto;
   }
 };
 </script>
