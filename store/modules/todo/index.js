@@ -29,6 +29,10 @@ const state = {
     body: '',
     title: '',
   },
+  dialogTodoObj:{
+    body: '',
+    title: '',
+  },
   NEW_TODO: [],
   dialogFlag:false
 }

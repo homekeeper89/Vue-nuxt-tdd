@@ -1,6 +1,6 @@
 describe("todo main test", () => {
-  const title = 'test Server'
-  const body = 'I am body'
+  const title = 'i am fixture title'
+  const body = 'i am fixture body'
 
   before(() => {
     cy.fixture('todo/getTodoAll').then((getTodoAll) => {
@@ -30,7 +30,7 @@ describe("todo main test", () => {
     cy.get("[data-cy=todo__table]").last().contains('td', 'some words')
   })
 
-  it.only('클릭하고 data제대로 modal에 불러 오는지', () => {
+  it('클릭하고 data제대로 modal에 불러 오는지', () => {
     cy.fixture('todo/getTodoAll').then((getTodoAll) => {
       cy.server()
       cy.route({
@@ -39,13 +39,13 @@ describe("todo main test", () => {
         response: [getTodoAll]
       })
     })
-    cy.get("[data-cy=todo__table]").find('tbody').find('tr').click()
-    cy.get("[data-cy=todo__dialog__input--title]").find('input').invoke('val').should("contain", title);
-    cy.get("[data-cy=todo__dialog__input--content]").find('input').invoke('val').should("contain", body);
+    cy.get("[data-cy=todo__table]").find('tbody').find('tr').first().click({force: true})
+    cy.get("[data-cy=todo__dialog__input--title]").find('input').invoke('val').should("contain", "some title");
+    cy.get("[data-cy=todo__dialog__input--content]").find('input').invoke('val').should("contain", "some words");
   })
 
   it('Click, update and click i accept', () => {
-    cy.get("[data-cy=todo__table]").contains('td', title).click()
+    cy.get("[data-cy=todo__table]").contains('td', title).click({force: true})
     cy.get("[data-cy=todo__dialog__input--title]").find('input').as('title')
     cy.get("[data-cy=todo__dialog__input--content]").find('input').as('content')
     cy.get("@title").clear()
@@ -54,7 +54,7 @@ describe("todo main test", () => {
     cy.get("@content").type("some content")
     cy.get("[data-cy=todo__dialog__btn--accept]").click()
     cy.wait(2000)
-    cy.get("[data-cy=todo__table]").last().contains('td', 'some words')
+    cy.get("[data-cy=todo__table]").first().contains('td', 'some text')
   })
 
   it('Some api for test', () => {
