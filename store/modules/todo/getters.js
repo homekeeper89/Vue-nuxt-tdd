@@ -5,4 +5,5 @@ export default {
   getTodoNew:state=>state.newTodoObj,
   getNewTodos:state=>state.NEW_TODO,
   getDialogFlag:state=>state.dialogFlag,
+  getModifyFlag:state=>state.modifyFlag
 }
