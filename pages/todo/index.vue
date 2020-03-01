@@ -53,7 +53,11 @@ export default {
     ...mapGetters(["getTodoTitle", "getTodoList", "getHeaders", "getNewTodos"])
   },
   methods: {
-    ...mapMutations(["SET_TODOTITLE", "SET_DIALOG_FLAG_TRUE", "SET_MODIFY_FLAG_TRUE"]),
+    ...mapMutations([
+      "SET_TODOTITLE",
+      "SET_DIALOG_FLAG_TRUE",
+      "SET_MODIFY_FLAG_TRUE"
+    ]),
     ...mapActions(["getAllTodoFromServer"]),
     onRowClick(item) {
       // console.log("onClick", item);
@@ -61,10 +65,11 @@ export default {
       // this.dataDto.body = "";
       // this.$set(this.dataDto, "body", item.body);
       // this.$set(this.dataDto, "title", item.title);
+      this.dataDto.userId = item.userId; 
       this.dataDto.title = item.title;
       this.dataDto.body = item.body;
       this.SET_DIALOG_FLAG_TRUE();
-      this.SET_MODIFY_FLAG_TRUE()
+      this.SET_MODIFY_FLAG_TRUE();
     },
     computed: {
       ...mapGetters({
