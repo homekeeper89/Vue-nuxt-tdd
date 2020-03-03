@@ -28,7 +28,7 @@ export default {
   SET_DIALOG_FLAG_FALSE(state){
     state.dialogFlag = false;
   },
-  SET_MODIFY_FLAG_TRUE(state){
+  SET_MODIFY_FLAG_TRUE(state, id){
     state.modifyFlag = true;
   },
   SET_MODIFY_FLAG_FALSE(state){
