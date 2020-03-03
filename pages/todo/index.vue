@@ -56,11 +56,6 @@ export default {
     ...mapMutations(["SET_TODOTITLE", "SET_DIALOG_FLAG_TRUE", "SET_MODIFY_FLAG_TRUE"]),
     ...mapActions(["getAllTodoFromServer"]),
     onRowClick(item) {
-      // console.log("onClick", item);
-      // this.dataDto.title = String(Math.random());
-      // this.dataDto.body = "";
-      // this.$set(this.dataDto, "body", item.body);
-      // this.$set(this.dataDto, "title", item.title);
       this.dataDto.title = item.title;
       this.dataDto.body = item.body;
       this.SET_DIALOG_FLAG_TRUE();
