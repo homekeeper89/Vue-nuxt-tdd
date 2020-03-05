@@ -90,7 +90,6 @@ export default {
         g_dataDto.rendererKey = Math.random();
       }
       g_dataDto.rendererKey += 1;
-      // console.log(this.dataDto);
     }
   },
   mounted() {
