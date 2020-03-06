@@ -56,7 +56,7 @@ export default {
         return this.getDialogFlag
       },
       set:function(){
-        console.log("이게 됌????")
+        console.log("isDialogOn Set work")
         this.setFalse()
       }
     }
