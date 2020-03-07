@@ -63,7 +63,7 @@ export default {
       this.dataDto.title = item.title;
       this.dataDto.body = item.body;
       this.SET_DIALOG_FLAG_TRUE();
-      this.SET_MODIFY_FLAG_TRUE();
+      this.SET_MODIFY_FLAG_TRUE(item.id);
     },
     computed: {
       ...mapGetters({

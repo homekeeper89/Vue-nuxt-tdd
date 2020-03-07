@@ -44,17 +44,31 @@ describe("todo main test", () => {
     cy.get("[data-cy=todo__dialog__input--content]").find('input').invoke('val').should("contain", "some words");
   })
 
-  it('Click, update and click i accept', () => {
-    cy.get("[data-cy=todo__table]").contains('td', title).click({force: true})
-    cy.get("[data-cy=todo__dialog__input--title]").find('input').as('title')
-    cy.get("[data-cy=todo__dialog__input--content]").find('input').as('content')
-    cy.get("@title").clear()
-    cy.get("@content").clear()
-    cy.get("@title").type("some text")
-    cy.get("@content").type("some content")
-    cy.get("[data-cy=todo__dialog__btn--accept]").click()
-    cy.wait(2000)
-    cy.get("[data-cy=todo__table]").first().contains('td', 'some text')
+  it.only("로우 클릭, 수정, 확인", ()=>{
+    let newTitle = "New title";
+    let newContent = "New Content";
+
+    cy.get("[data-cy=todo__table]").find('tbody').find('tr').last().as("firstRow")
+    cy.get("@firstRow").find("td").then($elem=>{
+      
+      cy.get("@firstRow").click({force:true})
+      cy.get("[data-cy=todo__dialog__input--title]").find('input').as("rowTitle")
+      cy.get("[data-cy=todo__dialog__input--content]").find('input').as("rowContent")
+
+      cy.get("@rowTitle").clear()
+      cy.get("@rowTitle").type(newTitle)
+
+      cy.get("@rowContent").clear()
+      cy.get("@rowContent").type(newContent)
+      cy.get("@rowTitle").click()
+      
+      cy.get("[data-cy=todo__dialog__btn--accept]").click({force:true}).then($btn=>{
+        cy.get("@firstRow").find("td").then($elem=>{
+          assert.equal($elem[2].innerHTML, newTitle, '뭐야 왜 안됨')
+          assert.equal($elem[3].innerHTML, newContent, '뭐야 왜 안됨')
+        })
+      })
+    })
   })
 
   it('Some api for test', () => {
