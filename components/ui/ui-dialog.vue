@@ -56,6 +56,7 @@ export default {
         return this.getDialogFlag
       },
       set:function(){
+        console.log("isDialogOn Set works")
         this.setFalse()
       }
     }
@@ -63,13 +64,15 @@ export default {
   methods: {
     ...mapMutations({
       addTodoObj: "SET_TODOOBJ",
-      setDialogFlagFalse:"SET_DIALOG_FLAG_FALSE"
+      setDialogFlagFalse:"SET_DIALOG_FLAG_FALSE",
+      setModifyFlagFalse:"SET_MODIFY_FLAG_FALSE"
     }),
     test() {
       console.log("ui-dialog, sonCreated");
     },
     setFalse(){
       this.setDialogFlagFalse()
+      this.setModifyFlagFalse()
     },
     onClickAccept() {
       this.addTodoObj();
