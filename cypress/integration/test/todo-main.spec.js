@@ -44,28 +44,35 @@ describe("todo main test", () => {
     cy.get("[data-cy=todo__dialog__input--content]").find('input').invoke('val').should("contain", "some words");
   })
 
-  it.only('로우 클릭, 데이터 수정, 데이터 제대로 입력 확인', () => {
-    // cy.get('.as-table').find('tbody>tr')
-    //   .first().find('td').first()
-    //   .find('button').as('firstBtn')
-    cy.get("[data-cy=todo__table]").contains('td', title).click({force: true})
-    cy.get("[data-cy=todo__table]").contains('td', title).click({force:true}).then(($btn)=>{
-      cy.get('[data-cy=todo__table]').contains('td', title).then($elem => {
-        // 결국 title 그대로 가져오는 꼴. 의미 없음.
-        cy.log(">>>>", $elem.text())
-        cy.debug()
-      });
+  it.only("로우 클릭, 수정, 확인", ()=>{
+    let newTitle = "New title";
+    let newContent = "New Content";
+
+    cy.get("[data-cy=todo__table]").find('tbody').find('tr').last().as("firstRow")
+    cy.get("@firstRow").find("td").then($elem=>{
+      
+      cy.get("@firstRow").click({force:true})
+      cy.get("[data-cy=todo__dialog__input--title]").find('input').as("rowTitle")
+      cy.get("[data-cy=todo__dialog__input--content]").find('input').as("rowContent")
+
+      cy.get("@rowTitle").clear()
+      cy.get("@rowTitle").type(newTitle)
+
+      cy.get("@rowContent").clear()
+      cy.get("@rowContent").type(newContent)
+
+      cy.get("[data-cy=todo__dialog__btn--accept]").click()
     })
-    cy.get("[data-cy=todo__dialog__input--title]").find('input').as('title')
-    cy.get("[data-cy=todo__dialog__input--content]").find('input').as('content')
-    cy.get("@title").clear()
-    cy.get("@content").clear()
-    cy.get("@title").type("some text")
-    cy.get("@content").type("some content")
-    cy.get("[data-cy=todo__dialog__btn--accept]").click()
-    cy.wait(2000)
-    // cy.get('tr[data-recordid="TheId"]>td> div'
-    cy.get("[data-cy=todo__table]").contains('td', 'some text').click({force:true})
+    cy.get("@firstRow").find("td").then($elem=>{
+      assert.equal($elem[3].innerHTML, newTitle, 'same content')
+    })
+    // cy.log(cy.get("@firstRow").find("td").text())
+    // cy.get("@firstRow").click({force:true}).then(($btn)=>{
+    //   cy.get("@firstRow").then($elem=>{
+    //     cy.log($elem.text)
+    //     cy.debug()
+    //   })
+    // })
   })
 
   it('Some api for test', () => {
