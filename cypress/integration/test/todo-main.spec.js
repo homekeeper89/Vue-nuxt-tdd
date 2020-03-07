@@ -44,8 +44,18 @@ describe("todo main test", () => {
     cy.get("[data-cy=todo__dialog__input--content]").find('input').invoke('val').should("contain", "some words");
   })
 
-  it('Click, update and click i accept', () => {
+  it.only('로우 클릭, 데이터 수정, 데이터 제대로 입력 확인', () => {
+    // cy.get('.as-table').find('tbody>tr')
+    //   .first().find('td').first()
+    //   .find('button').as('firstBtn')
     cy.get("[data-cy=todo__table]").contains('td', title).click({force: true})
+    cy.get("[data-cy=todo__table]").contains('td', title).click({force:true}).then(($btn)=>{
+      cy.get('[data-cy=todo__table]').contains('td', title).then($elem => {
+        // 결국 title 그대로 가져오는 꼴. 의미 없음.
+        cy.log(">>>>", $elem.text())
+        cy.debug()
+      });
+    })
     cy.get("[data-cy=todo__dialog__input--title]").find('input').as('title')
     cy.get("[data-cy=todo__dialog__input--content]").find('input').as('content')
     cy.get("@title").clear()
@@ -54,7 +64,8 @@ describe("todo main test", () => {
     cy.get("@content").type("some content")
     cy.get("[data-cy=todo__dialog__btn--accept]").click()
     cy.wait(2000)
-    cy.get("[data-cy=todo__table]").first().contains('td', 'some text')
+    // cy.get('tr[data-recordid="TheId"]>td> div'
+    cy.get("[data-cy=todo__table]").contains('td', 'some text').click({force:true})
   })
 
   it('Some api for test', () => {

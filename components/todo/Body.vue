@@ -5,7 +5,7 @@
         <tbody>
           <tr v-for="item in items" :key="item.id" @click="onRowClick(item)">
             <td>{{ item.userId }}</td>
-            <td>{{ item.id }}</td>
+            <td data-cy="todo__table__id">{{ item.id }}</td>
             <td>{{ item.title }}</td>
             <td>{{ item.body }}</td>
           </tr>
