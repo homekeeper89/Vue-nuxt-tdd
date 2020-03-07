@@ -81,7 +81,6 @@ export default {
         let id = this.getModifyNumber()
         let obj = this.getTodoById()(id);
         this.addExistObj(obj)
-        return
       }else{
         this.addTodoObj();
       }

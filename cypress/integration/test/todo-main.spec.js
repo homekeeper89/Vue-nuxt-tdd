@@ -61,18 +61,12 @@ describe("todo main test", () => {
       cy.get("@rowContent").clear()
       cy.get("@rowContent").type(newContent)
 
-      cy.get("[data-cy=todo__dialog__btn--accept]").click()
+      cy.get("[data-cy=todo__dialog__btn--accept]").click({force:true}).then($btn=>{
+        cy.get("@firstRow").find("td").then($elem=>{
+          assert.equal($elem[2].innerHTML, newTitle, '뭐야 왜 안됨')
+        })
+      })
     })
-    cy.get("@firstRow").find("td").then($elem=>{
-      assert.equal($elem[3].innerHTML, newTitle, 'same content')
-    })
-    // cy.log(cy.get("@firstRow").find("td").text())
-    // cy.get("@firstRow").click({force:true}).then(($btn)=>{
-    //   cy.get("@firstRow").then($elem=>{
-    //     cy.log($elem.text)
-    //     cy.debug()
-    //   })
-    // })
   })
 
   it('Some api for test', () => {
