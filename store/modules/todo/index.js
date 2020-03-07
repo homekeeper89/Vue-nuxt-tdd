@@ -34,7 +34,8 @@ const state = {
     title: '',
   },
   NEW_TODO: [],
-  dialogFlag:false
+  dialogFlag:false,
+  modifyFlag:false,
 }
 
 export default {
