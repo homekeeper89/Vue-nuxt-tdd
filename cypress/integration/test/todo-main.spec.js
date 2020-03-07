@@ -60,10 +60,12 @@ describe("todo main test", () => {
 
       cy.get("@rowContent").clear()
       cy.get("@rowContent").type(newContent)
-
+      cy.get("@rowTitle").click()
+      
       cy.get("[data-cy=todo__dialog__btn--accept]").click({force:true}).then($btn=>{
         cy.get("@firstRow").find("td").then($elem=>{
           assert.equal($elem[2].innerHTML, newTitle, '뭐야 왜 안됨')
+          assert.equal($elem[3].innerHTML, newContent, '뭐야 왜 안됨')
         })
       })
     })
