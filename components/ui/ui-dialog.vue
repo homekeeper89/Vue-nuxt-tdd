@@ -62,10 +62,12 @@ export default {
     }
   },
   methods: {
+    ...mapGetters(['getTodoById', 'getModifyFlag', 'getModifyNumber']),
     ...mapMutations({
       addTodoObj: "SET_TODOOBJ",
+      addExistObj:"SET_EXISTOBJ",
       setDialogFlagFalse:"SET_DIALOG_FLAG_FALSE",
-      setModifyFlagFalse:"SET_MODIFY_FLAG_FALSE"
+      setModifyFlagFalse:"SET_MODIFY_FLAG_FALSE",
     }),
     test() {
       console.log("ui-dialog, sonCreated");
@@ -75,7 +77,14 @@ export default {
       this.setModifyFlagFalse()
     },
     onClickAccept() {
-      this.addTodoObj();
+      if(this.getModifyFlag){
+        let id = this.getModifyNumber()
+        let obj = this.getTodoById()(id);
+        this.addExistObj(obj)
+        return
+      }else{
+        this.addTodoObj();
+      }
       this.isDialogOn = false
     },
     doSomething() {

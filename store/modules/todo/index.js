@@ -36,6 +36,7 @@ const state = {
   NEW_TODO: [],
   dialogFlag:false,
   modifyFlag:false,
+  modifyNumber:undefined,
 }
 
 export default {
