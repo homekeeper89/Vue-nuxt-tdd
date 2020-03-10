@@ -11,9 +11,6 @@
       <UiButton :property="btnReportObj" :method="cancel">
         <template #button_name>취소</template>
       </UiButton>
-      <UiButton :property="btnReportObj" :method="registerUser">
-        <template #button_name>회원가입</template>
-      </UiButton>
     </div>
     <Body :headers="getHeaders" :todoList="getNewTodos" :method="onRowClick" data-cy="todo__table"></Body>
     <Footer></Footer>
@@ -74,9 +71,6 @@ export default {
         getTodoItems: "getTodoItems",
         getHeaders: "getHeaders"
       })
-    },
-    registerUser(){
-      console.log("I am registerUser")
     },
     register() {
       console.log("i am register");
