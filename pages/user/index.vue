@@ -1,7 +1,7 @@
 <template>
   <div>
     Hello World
-    <UiButton :property="btnRegisterObj" :method="register">
+    <UiButton :property="btnRegisterObj" :method="register" data-cy="user__register--btn">
       <template #button_name>등록</template>
     </UiButton>
   </div>
