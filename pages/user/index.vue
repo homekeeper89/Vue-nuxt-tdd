@@ -1,10 +1,12 @@
 <template>
   <div class="user--index">
     <div>
-      <span>id 입력</span>
+      <span>ID 입력</span>
+      <UiInput></UiInput>
     </div>
     <div>
-      <span>pw 입력</span>
+      <span>패스워드 입력</span>
+      <UiInput></UiInput>
     </div>
     <div>
       <span>로그인 등록 버튼</span>
@@ -18,9 +20,12 @@
 </template>
 <script>
 import UiButton from "@/components/ui/ui-button-primary";
+import UiInput from "@/components/ui/ui-input";
+
 export default {
   components: {
-    UiButton
+    UiButton,
+    UiInput
   },
   data() {
     return {
