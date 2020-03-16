@@ -21,6 +21,7 @@
 <script>
 import UiButton from "@/components/ui/ui-button-primary";
 import UiInput from "@/components/ui/ui-input";
+import UiDailogForm from "@/compoentns/ui/ui-dialog-form"
 import {mapActions} from 'vuex';
 
 export default {
