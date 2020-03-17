@@ -16,6 +16,9 @@
         <template #button_name>등록</template>
       </UiButton>
     </div>
+    <div>
+      <UiDailogForm>테스트 다이얼로그</UiDailogForm>
+    </div>
   </div>
 </template>
 <script>
