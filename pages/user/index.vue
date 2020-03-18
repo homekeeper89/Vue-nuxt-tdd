@@ -17,7 +17,9 @@
       </UiButton>
     </div>
     <div>
-      <UiDailogForm>테스트 다이얼로그</UiDailogForm>
+      <UiDailogForm>테스트 다이얼로그
+        <template #test>테스트 네이밍</template>
+      </UiDailogForm>
     </div>
   </div>
 </template>
