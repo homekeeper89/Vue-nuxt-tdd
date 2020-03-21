@@ -17,22 +17,21 @@
       </UiButton>
     </div>
     <div>
-      <UiDailogForm>테스트 다이얼로그
-        <template #test>테스트 네이밍</template>
-      </UiDailogForm>
+      <UiDialogForm>테스트 다이얼로그</UiDialogForm>
     </div>
   </div>
 </template>
 <script>
 import UiButton from "@/components/ui/ui-button-primary";
 import UiInput from "@/components/ui/ui-input";
-import UiDailogForm from "@/compoentns/ui/ui-dialog-form"
+import UiDialogForm from "@/components/ui/ui-dialog-form"
 import {mapActions} from 'vuex';
 
 export default {
   components: {
     UiButton,
-    UiInput
+    UiInput,
+    UiDialogForm
   },
   data() {
     return {
