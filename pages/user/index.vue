@@ -17,7 +17,7 @@
       </UiButton>
     </div>
     <div>
-      <UiDialogForm>테스트 다이얼로그</UiDialogForm>
+      <UiDialogForm data-cy="user__register__dialog--form">테스트 다이얼로그</UiDialogForm>
     </div>
   </div>
 </template>
