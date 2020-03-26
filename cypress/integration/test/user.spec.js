@@ -8,9 +8,10 @@ describe('유저에 관한 모든 테스트', () => {
     cy.get("[data-cy=user__login__btn]").click()
 
     cy.get("[data-cy=user__register__dialog--form]").click()
-    let check_name = 'User Profile'
+
+    let check_title = 'User Profile'
     cy.get("[data-cy=dialog__form--title]").then($val=>{
-      assert.equal($val.text, check_name)
+      assert.equal($val.text, check_title)
     })
     
   })
