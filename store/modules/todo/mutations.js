@@ -11,6 +11,10 @@ export default {
     state.NEW_TODO.unshift(state.newTodoObj)
     this.commit("SET_NEWTODO_EMPTY")
   },
+  SET_EXISTOBJ(state, obj){
+    obj.title = state.newTodoObj.title
+    obj.body = state.newTodoObj.body
+  },
   SET_NEWTODO_EMPTY(state) {
     state.newTodoObj = {
       userId:0,
@@ -29,9 +33,11 @@ export default {
     state.dialogFlag = false;
   },
   SET_MODIFY_FLAG_TRUE(state, id){
+    state.modifyNumber = id;
     state.modifyFlag = true;
   },
   SET_MODIFY_FLAG_FALSE(state){
+    state.modifyNumber = undefined;
     state.modifyFlag = false;
   }
 }
